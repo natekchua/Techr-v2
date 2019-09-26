@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class Category {
 	private String name;
 	private ArrayList<String> subcategories;
-	private int test;
 
 	public Category(String name)
 	{
