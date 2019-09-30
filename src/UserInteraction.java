@@ -23,12 +23,11 @@ import java.util.Scanner;
 
 public class UserInteraction {
 
-	private String name;
 	private Scanner input = new Scanner(System.in);
 	private FavoritesList fList = new FavoritesList();
 	private DiscardedList dList = new DiscardedList();
 	private BrowseList brList = new BrowseList();
-	private Category cat = new Category(name);
+	private Category cat = new Category();
 	private Menus menu = new Menus();
 	private static final boolean ASCENDING = true;
 	private static final boolean DESCENDING = false;
@@ -45,8 +44,8 @@ public class UserInteraction {
 	{
 		pList.displayCategories();
 		String mainCategory = " ";
-		int sub = 1;
-		int prefC = 0;
+		int sub = 1;		//sub category index
+		int prefChoice = 0;	//preference choice
 		System.out.print("\nChoose a Category: ");
 		int c = input.nextInt(); 
 		Preference pref = new Preference(pList.categories.get(c-1).getName());
@@ -56,8 +55,8 @@ public class UserInteraction {
 		if(choice.equals("y"))
 		{
 			menu.preferenceMenu();
-			prefC = input.nextInt();
-			switch(prefC)
+			prefChoice = input.nextInt();
+			switch(prefChoice)
 			{
 				case 1:
 					mainCategory = pref.getSection().get(0);
@@ -76,11 +75,11 @@ public class UserInteraction {
 		}
 		brList.setBrowseList(pList.filteredProducts(pref));
 		
-		if(choice.equals("y") && prefC == 1)
+		if(choice.equals("y") && prefChoice == 1)
 			System.out.println("\nHere is what we found for " + pList.getCategory(mainCategory).getSubcategories().get(sub-1) + " " + pList.chooseCategory(c).getName() + ":\n");
-		else if(choice.equals("y") && prefC == 2)
+		else if(choice.equals("y") && prefChoice == 2)
 			System.out.println("\nHere is what we found for " + pList.chooseCategory(c).getName() + " between $" + pref.getMinRange() + " and $" + pref.getMaxRange() + ":\n");
-		else if(choice.equals("y") && prefC == 3)
+		else if(choice.equals("y") && prefChoice == 3)
 			System.out.println("\nHere is what we found for " + pList.chooseCategory(c).getName() + " with a rating of " + pref.getRating() + " or over" + ":\n");
 		else if(choice.equals("n"))
 			System.out.println("\nHere is what we found for " + pList.chooseCategory(c).getName() + ":\n");

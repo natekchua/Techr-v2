@@ -24,6 +24,10 @@ public class Category {
 		this.name = name;
 		this.subcategories = new ArrayList<>();
 	}
+
+	public Category(){
+
+	}
 	
 	/**	Display all sub-categories of a selected main category from the list of products. 
 	 *  @param category - the main category
