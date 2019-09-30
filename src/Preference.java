@@ -95,7 +95,6 @@ public class Preference {
 		System.out.print("Enter maximum price: ");
 		setMaxRange(userInput.nextInt());
 	}
-	
 	/**	adds to the preference a specified rating based on user input.
 	 */
 	public void selectRating()

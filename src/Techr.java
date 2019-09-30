@@ -6,10 +6,10 @@ public class Techr {
 	private Database dBase = new Database();
 	private ProductList pList = new ProductList();
 
-	public void run() throws FileNotFoundException
+	private void run() throws FileNotFoundException
 	{
 		dBase.loadDatabase(pList);
-		user.mainMenu(pList);
+		user.options(pList);
 	}
 
 	public static void main(String[] args) {

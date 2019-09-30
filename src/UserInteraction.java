@@ -29,48 +29,10 @@ public class UserInteraction {
 	private DiscardedList dList = new DiscardedList();
 	private BrowseList brList = new BrowseList();
 	private Category cat = new Category(name);
+	private Menus menu = new Menus();
 	private static final boolean ASCENDING = true;
 	private static final boolean DESCENDING = false;
-	
-	public void displayMenu()
-	{	
-		System.out.println("TECHR \n");
 
-		System.out.println("1. Browse");
-		System.out.println("2. Favorites List");
-		System.out.println("3. Previously Viewed");
-		System.out.println("4. Quit");
-		System.out.println();
-	}
-	
-	public void preferenceMenu()
-	{
-		System.out.println("Choose Preference: \n");
-		System.out.println("1. Specify Sub Category");
-		System.out.println("2. Specify Price Range");
-		System.out.println("3. Specify Rating");
-	}
-	
-	private void favouritesMenu()
-	{
-		System.out.println("Managing Favourites List: \n");
-		System.out.println("1. Clear");
-		System.out.println("2. Sort Alphabetical Ascending");
-		System.out.println("3. Sort Alphabetical Descending");
-		System.out.println("4. Sort Price Ascending");
-		System.out.println("5. Sort Price Descending");
-		System.out.println("6. Swap");
-		System.out.println("7. Remove");
-		System.out.println("8. Back");
-	}
-	
-	private void discardedMenu()
-	{
-		System.out.println("Manage Discarded List: \n");
-		System.out.println("1. Clear");
-		System.out.println("2. Back");
-	}
-	
 	/**
 	 * Handles the browsing functionality of the application.
 	 * Provides creating a preference for the user as well by either:
@@ -79,7 +41,7 @@ public class UserInteraction {
 	 *  (3) Selecting a rating
 	 * @param pList to filter
 	 */
-	public void browse(ProductList pList)
+	private void browse(ProductList pList)
 	{
 		pList.displayCategories();
 		String mainCategory = " ";
@@ -93,7 +55,7 @@ public class UserInteraction {
 		String choice = input.next();
 		if(choice.equals("y"))
 		{
-			preferenceMenu();
+			menu.preferenceMenu();
 			prefC = input.nextInt();
 			switch(prefC)
 			{
@@ -128,22 +90,19 @@ public class UserInteraction {
 		chooseAProduct(pList);
 	}
 
-	/**
+		/**
 	 * The main function which handles all the terminal application
 	 * functionalities
 	 * @param pList of all the products
 	 */
-	public void mainMenu(ProductList pList)
-	{
+	public void options(ProductList pList) {
 		boolean quit = false;
-		while(!quit)
-		{
-			displayMenu();
+		while (!quit) {
+			menu.displayMenu();
 			System.out.print("Enter choice: ");
 			int choice = input.nextInt();
 			System.out.println();
-			switch(choice)
-			{
+			switch (choice) {
 				case 1:
 					browse(pList);
 					break;
@@ -159,10 +118,9 @@ public class UserInteraction {
 				default:
 					System.out.println("invalid choice");
 					break;
-			}	
+			}
 		}
 	}
-	
 	/**
 	 * Handles functionality for the discarded list.
 	 * @param pList
@@ -174,7 +132,7 @@ public class UserInteraction {
 		{
 			System.out.println("Discarded List: ");
 			dList.displayProducts();
-			discardedMenu();
+			menu.discardedMenu();
 			
 			System.out.print("Enter choice: ");
 			int choice = input.nextInt();
@@ -192,88 +150,86 @@ public class UserInteraction {
 			}
 		}
 	}
-	
-	/**
-	 * Handles functionality for the favourites list.
-	 */
-	private void enterFavList()
-	{
-		boolean quit = false;
-		while(!quit)
+
+		/**
+		 * Handles functionality for the favourites list.
+		 */
+		private void enterFavList()
 		{
-			System.out.println("Favourites List: ");
-			fList.displayProducts();
-			favouritesMenu();
-			System.out.print("Enter choice: ");
-			int choice  = input.nextInt();
-			switch(choice)
-			{
-				case 1:
-					fList.clearList();
-					break;
-				case 2:
-					fList.alphabeticalSort(ASCENDING);
-					break;
-				case 3:
-					fList.alphabeticalSort(DESCENDING);
-					break;
-				case 4:
-					fList.priceSort(ASCENDING);
-					break;
-				case 5:
-					fList.priceSort(DESCENDING);
-					break;
-				case 6:
-					swapFList();
-					break;
-				case 7:
-					removeFromF();
-					break;
-				case 8:
-					quit = true;
-					break;
-				default:
-					System.out.println("invalid choice");
-					break;
+			boolean quit = false;
+			while (!quit) {
+				System.out.println("Favourites List: ");
+				fList.displayProducts();
+				menu.favouritesMenu();
+				System.out.print("Enter choice: ");
+				int choice = input.nextInt();
+				switch (choice) {
+					case 1:
+						fList.clearList();
+						break;
+					case 2:
+						fList.alphabeticalSort(ASCENDING);
+						break;
+					case 3:
+						fList.alphabeticalSort(DESCENDING);
+						break;
+					case 4:
+						fList.priceSort(ASCENDING);
+						break;
+					case 5:
+						fList.priceSort(DESCENDING);
+						break;
+					case 6:
+						swapFList();
+						break;
+					case 7:
+						removeFromF();
+						break;
+					case 8:
+						quit = true;
+						break;
+					default:
+						System.out.println("invalid choice");
+						break;
+				}
 			}
 		}
-	}
 
-	/**
-	 * User interaction wrapper function for swapping products in the
-	 * favourites list
-	 */
-	private void swapFList()
-	{
-		System.out.print("Enter 1st item index: ");
-		int first = input.nextInt();
-		System.out.print("Enter 2nd item index: ");
-		int second = input.nextInt();
-		fList.swap(first-1, second-1);
+		/**
+		 * User interaction wrapper function for swapping products in the
+		 * favourites list
+		 */
+		private void swapFList ()
+		{
+			System.out.print("Enter 1st item index: ");
+			int first = input.nextInt();
+			System.out.print("Enter 2nd item index: ");
+			int second = input.nextInt();
+			fList.swap(first - 1, second - 1);
+		}
+
+		/**
+		 * User interaction wrapper function for removing a product from
+		 * the favourites list
+		 */
+		private void removeFromF ()
+		{
+			System.out.print("Enter item index: ");
+			int index = input.nextInt();
+			fList.removeAt(index - 1);
+		}
+
+		/**
+		 * User interaction wrapper function for choosing a product with a given
+		 * product list
+		 * @param pList to choose a product from
+		 */
+		private void chooseAProduct (ProductList pList)
+		{
+			System.out.print("Choose a product: ");
+			int choice = input.nextInt();
+			Product chosen = brList.getList().get(choice - 1);
+			fList.addToEnd(chosen);
+			pList.removeProduct(chosen);
+		}
 	}
-	
-	/**
-	 * User interaction wrapper function for removing a product from
-	 * the favourites list
-	 */
-	private void removeFromF()
-	{
-		System.out.print("Enter item index: ");
-		int index = input.nextInt();
-		fList.removeAt(index-1);
-	}
-	
-	/**
-	 * User interaction wrapper function for choosing a product with a given
-	 * product list
-	 * @param pList to choose a product from
-	 */
-	private void chooseAProduct(ProductList pList)
-	{
-		System.out.print("Choose a product: ");
-		int choice = input.nextInt();
-		Product chosen = brList.getList().get(choice-1);
-		fList.addToEnd(chosen);
-		pList.removeProduct(chosen);
-	}
-}
