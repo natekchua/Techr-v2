@@ -34,52 +34,36 @@ public class UserInteraction {
 
 	/**
 	 * Handles the browsing functionality of the application.
-	 * Provides creating a preference for the user as well by either:
-	 *  (1) Choosing a subcategory
-	 *  (2) Selecting a price range
-	 *  (3) Selecting a rating
+	 * User is able to choose the main category of products to browse and apply filters.
 	 * @param pList to filter
 	 */
 	private void browse(ProductList pList)
 	{
 		pList.displayCategories();
-		String mainCategory = " ";
-		int sub = 1;		//sub category index
-		int prefChoice = 0;	//preference choice
+		int filterIndex = 0;	//preference choice
+
 		System.out.print("\nChoose a Category: ");
-		int c = input.nextInt(); 
+		int c = input.nextInt();
+
 		Preference pref = new Preference(pList.categories.get(c-1).getName());
-		
+		String mainCategory = pref.getSection().get(0);
+
 		System.out.print("Specify product preference (type, price etc.)? Enter (y/n): ");
 		String choice = input.next();
-		if(choice.equals("y"))
-		{
+
+		if(choice.equals("y")){
 			menu.preferenceMenu();
-			prefChoice = input.nextInt();
-			switch(prefChoice)
-			{
-				case 1:
-					mainCategory = pref.getSection().get(0);
-					cat.displaySubcategories(mainCategory, pList);
-					sub = input.nextInt();
-					pref.addSection(pList.getCategory(mainCategory).getSubcategories().get(sub - 1));
-					break;
-				case 2:
-					pref.selectPriceRange();
-					break;
-				case 3:
-					pref.selectRating();
-					break;
-					
-			}
+			filterIndex = input.nextInt();
+			chooseFilter(filterIndex, pref, mainCategory, pList);
 		}
+
 		brList.setBrowseList(pList.filteredProducts(pref));
 		
-		if(choice.equals("y") && prefChoice == 1)
-			System.out.println("\nHere is what we found for " + pList.getCategory(mainCategory).getSubcategories().get(sub-1) + " " + pList.chooseCategory(c).getName() + ":\n");
-		else if(choice.equals("y") && prefChoice == 2)
+		if(choice.equals("y") && filterIndex == 1)
+			System.out.println("\nHere is what we found for " + pList.getCategory(mainCategory).getSubcategories().get(0) + " " + pList.chooseCategory(c).getName() + ":\n");
+		else if(choice.equals("y") && filterIndex == 2)
 			System.out.println("\nHere is what we found for " + pList.chooseCategory(c).getName() + " between $" + pref.getMinRange() + " and $" + pref.getMaxRange() + ":\n");
-		else if(choice.equals("y") && prefChoice == 3)
+		else if(choice.equals("y") && filterIndex == 3)
 			System.out.println("\nHere is what we found for " + pList.chooseCategory(c).getName() + " with a rating of " + pref.getRating() + " or over" + ":\n");
 		else if(choice.equals("n"))
 			System.out.println("\nHere is what we found for " + pList.chooseCategory(c).getName() + ":\n");
@@ -87,6 +71,33 @@ public class UserInteraction {
 		brList.displayProducts();
 		dList.setList(brList.getList());
 		chooseAProduct(pList);
+	}
+
+	/**
+	 * Handles the filter functionality of the application.
+	 * User chooses one of the 3 filters:
+	 *  (1) Choosing a subcategory
+	 *  (2) Selecting a price range
+	 *  (3) Selecting a rating
+	 * @param choice to determine what case statement is chosen
+	 * @param pref Preference object
+	 * @param main name of the main category
+	 * @param pList to filter
+	 *
+	 */
+	private void chooseFilter(int choice, Preference pref, String main, ProductList pList){
+		switch(choice)
+		{
+			case 1:
+				pref.selectSubCategory(cat, main, pList);
+				break;
+			case 2:
+				pref.selectPriceRange();
+				break;
+			case 3:
+				pref.selectRating();
+				break;
+		}
 	}
 
 		/**
