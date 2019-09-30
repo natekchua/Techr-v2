@@ -43,9 +43,9 @@ public class UserInteraction {
 		int filterIndex = 0;	//preference choice
 
 		System.out.print("\nChoose a Category: ");
-		int c = input.nextInt();
+		int cIndex = input.nextInt(); //index of category
 
-		Preference pref = new Preference(pList.categories.get(c-1).getName());
+		Preference pref = new Preference(pList.categories.get(cIndex-1).getName());
 		String mainCategory = pref.getSection().get(0);
 
 		System.out.print("Specify product preference (type, price etc.)? Enter (y/n): ");
@@ -58,15 +58,7 @@ public class UserInteraction {
 		}
 
 		brList.setBrowseList(pList.filteredProducts(pref));
-		
-		if(choice.equals("y") && filterIndex == 1)
-			System.out.println("\nHere is what we found for " + pList.getCategory(mainCategory).getSubcategories().get(0) + " " + pList.chooseCategory(c).getName() + ":\n");
-		else if(choice.equals("y") && filterIndex == 2)
-			System.out.println("\nHere is what we found for " + pList.chooseCategory(c).getName() + " between $" + pref.getMinRange() + " and $" + pref.getMaxRange() + ":\n");
-		else if(choice.equals("y") && filterIndex == 3)
-			System.out.println("\nHere is what we found for " + pList.chooseCategory(c).getName() + " with a rating of " + pref.getRating() + " or over" + ":\n");
-		else if(choice.equals("n"))
-			System.out.println("\nHere is what we found for " + pList.chooseCategory(c).getName() + ":\n");
+		filteredResults(filterIndex, cIndex, mainCategory, pList, pref);
 
 		brList.displayProducts();
 		dList.setList(brList.getList());
@@ -82,7 +74,7 @@ public class UserInteraction {
 	 * @param choice to determine what case statement is chosen
 	 * @param pref Preference object
 	 * @param main name of the main category
-	 * @param pList to filter
+	 * @param pList list of products
 	 *
 	 */
 	private void chooseFilter(int choice, Preference pref, String main, ProductList pList){
@@ -98,6 +90,26 @@ public class UserInteraction {
 				pref.selectRating();
 				break;
 		}
+	}
+
+	/*
+	 * displays the filtered results according to the user's entered preferences.
+	 * @param filterIndex used to choose which filter to apply
+	 * @param categoryIndex used to choose the main category
+	 * @param main name of the main category
+	 * @param pList list of products
+	 * @param pref
+	 */
+	private void filteredResults(int filterIndex, int categoryIndex, String main, ProductList pList, Preference pref){
+		String subcatName = pList.getCategory(main).getSubcategories().get(0); //name of sub category
+		String maincatName = pList.chooseCategory(categoryIndex).getName(); //name of main category
+
+		if(filterIndex == 1)
+			System.out.println("\nHere is what we found for " +  subcatName + " " + maincatName + ":\n");
+		else if(filterIndex == 2)
+			System.out.println("\nHere is what we found for " + maincatName + " between $" + pref.getMinRange() + " and $" + pref.getMaxRange() + ":\n");
+		else if(filterIndex == 3)
+			System.out.println("\nHere is what we found for " + maincatName + " with a rating of " + pref.getRating() + " or over" + ":\n");
 	}
 
 		/**
