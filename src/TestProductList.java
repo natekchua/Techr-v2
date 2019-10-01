@@ -5,28 +5,25 @@ import org.junit.jupiter.api.Test;
 
 class TestProductList {
 
-	ProductList prodList = new ProductList();
+	private ProductList prodList = new ProductList();
 	Preference pref = new Preference();
 
 
 	@Test
-	void emptyProdList() 
-	{
+	void emptyProdList() {
 		int output = prodList.getList().size();
 		assertEquals(0, output);
 	}
 	
 	@Test
-	void oneProductInList()
-	{
+	void oneProductInList() {
 		prodList.addToEnd(new Product());
 		int output = prodList.getList().size();
 		assertEquals(1, output);
 	}
 	
 	@Test
-	void moreThanOneProductInList()
-	{
+	void moreThanOneProductInList() {
 		prodList.addToEnd(new Product());
 		prodList.addToEnd(new Product());
 		
@@ -35,8 +32,7 @@ class TestProductList {
 	}
 	
 	@Test
-	void oneProdAndNoPreferenceFound()
-	{
+	void oneProdAndNoPreferenceFound() {
 		String [] section = {"Laptop", "Office"};
 		String [] images = {"img1match", "img2match"};
 		prodList.addToEnd(new Product("Cool Laptop", "Laptop", section, 9.99, images, 5.0, "url1"));
@@ -48,8 +44,7 @@ class TestProductList {
 	}
 	
 	@Test
-	void oneProdAndPreferenceFound()
-	{	
+	void oneProdAndPreferenceFound() {
 		prodList.addToEnd(new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Office"}, 9.99, new String[]{"img1match", "img2match"}, 5.0, "url1"));
 		Preference pref = new Preference("Laptop");
 
@@ -58,8 +53,7 @@ class TestProductList {
 		assertEquals(1, filteredProds);
 	}
 	@Test
-	void moreThanOneProdAndNoPrefFound()
-	{
+	void moreThanOneProdAndNoPrefFound() {
 		String [] images = {"img1match", "img2match"};
 		
 		prodList.addToEnd(new Product("Decent Laptop", "Laptop", new String[]{"Laptop", "Office"}, 999.99, images, 1.9, "url1"));
@@ -70,12 +64,10 @@ class TestProductList {
 		int filteredProds = prodList.filteredProducts(pref).size();
 		
 		assertEquals(0, filteredProds);
-
 	}
 	
 	@Test
-	void moreThanOneProdAndOnePrefFound()
-	{
+	void moreThanOneProdAndOnePrefFound() {
 		String [] images = {"img1match", "img2match"};
 		
 		prodList.addToEnd(new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 999.99, images, 5.0, "url1"));
@@ -86,12 +78,10 @@ class TestProductList {
 		int filteredProds = prodList.filteredProducts(pref).size();
 		
 		assertEquals(1, filteredProds);
-
 	}
 	
 	@Test
-	void moreThanOneProdAndMultiplePrefFound()
-	{
+	void moreThanOneProdAndMultiplePrefFound() {
 		String [] images = {"img1match", "img2match"};
 		
 		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 1999.99, images, 5.0, "url3"));
@@ -103,106 +93,89 @@ class TestProductList {
 		int filteredProds = prodList.filteredProducts(pref).size();
 		
 		assertEquals(2, filteredProds);
-
 	}
 	
 	@Test
-	void prodPriceLessThanMinPref()
-	{
+	void prodPriceLessThanMinPref() {
 		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{}, 199.99, new String[]{}, 3.0, "url3"));
 		
 		Preference pref = preferenceBuilder();
 		
 		int filteredProds = prodList.filteredProducts(pref).size();
 		assertEquals(0, filteredProds);
-
 	}
 	
 	@Test
-	void prodPriceGreaterThanMinPref()
-	{
+	void prodPriceGreaterThanMinPref() {
 		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{}, 3999.99, new String[]{}, 3.0, "url3"));
 		
 		Preference pref = preferenceBuilder();
 		
 		int filteredProds = prodList.filteredProducts(pref).size();
 		assertEquals(0, filteredProds);
-
 	}
 	
 	@Test
-	void prodPriceInPrefRange()
-	{
+	void prodPriceInPrefRange() {
 		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 999.99, new String[]{}, 5.0, "url3"));
 		
 		Preference pref = preferenceBuilder();
 		
 		int filteredProds = prodList.filteredProducts(pref).size();
 		assertEquals(1, filteredProds);
-
 	}
 	
 	@Test
-	void prodPriceIsMinRange()
-	{
+	void prodPriceIsMinRange() {
 		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 500, new String[]{}, 5.0, "url3"));
 		
 		Preference pref = preferenceBuilder();
 		
 		int filteredProds = prodList.filteredProducts(pref).size();
 		assertEquals(1, filteredProds);
-
 	}
 	
 	@Test
-	void prodPriceIsMaxRange()
-	{
+	void prodPriceIsMaxRange() {
 		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 3000, new String[]{}, 5.0, "url3"));
 		
 		Preference pref = preferenceBuilder();
 		
 		int filteredProds = prodList.filteredProducts(pref).size();
 		assertEquals(1, filteredProds);
-
 	}
 	
 	@Test
-	void prodRatingIsRatingPref()
-	{
+	void prodRatingIsRatingPref() {
 		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 3000, new String[]{}, 4.0, "url3"));
 		
 		Preference pref = preferenceBuilder();
 		
 		int filteredProds = prodList.filteredProducts(pref).size();
 		assertEquals(1, filteredProds);
-
 	}
 	
 	@Test
-	void prodRatingIsGreaterThanRatingPref()
-	{
+	void prodRatingIsGreaterThanRatingPref() {
 		prodList.addToEnd(new Product("Best Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 3000, new String[]{}, 5.0, "url3"));
 		
 		Preference pref = preferenceBuilder();
 		
 		int filteredProds = prodList.filteredProducts(pref).size();
 		assertEquals(1, filteredProds);
-
 	}
 	
 	@Test
-	void prodRatingIsLessThanRatingPref()
-	{
+	void prodRatingIsLessThanRatingPref() {
 		prodList.addToEnd(new Product("Slow Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 2000, new String[]{}, 3.0, "url3"));
 		
 		Preference pref = preferenceBuilder();
 		
 		int filteredProds = prodList.filteredProducts(pref).size();
 		assertEquals(0, filteredProds);
-
 	}
-	Preference preferenceBuilder()
-	{
+
+	Preference preferenceBuilder() {
 		Preference pref = new Preference();
 		pref.setMinRange(500);
 		pref.setMaxRange(3000);
@@ -210,6 +183,5 @@ class TestProductList {
 		pref.addSection("Gaming");
 		pref.setRating(4.0);
 		return pref;
-		
 	}
 }

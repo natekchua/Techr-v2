@@ -1,0 +1,86 @@
+import java.util.ArrayList;
+
+public class CategoryList {
+    private ArrayList<Category> categories;
+
+    CategoryList(){
+        categories = new ArrayList<>();
+    }
+
+    /**
+     * Get each and every subcategory from the list of categories
+     * @return an ArrayList of Strings containing all subcategories
+     */
+    public ArrayList<String> getSubcategories() {
+        ArrayList<String> subcategories = new ArrayList<>();
+        for(Category category : categories) {
+            for(String subCategory : category.getSubcategories())
+                subcategories.add(subCategory);
+        }
+        return subcategories;
+    }
+
+    /**
+     * Gets the category at the given index. Similar to a get function
+     * for an ArrayList
+     * @param index of the category to get
+     * @return the category chosen
+     */
+    public Category chooseCategory(int index)
+    {
+        return categories.get(index-1);
+    }
+
+    /**
+     * Adds a category to the categories list. If the category already
+     * exists the functions does nothing
+     * @param categoryName to add to categories
+     */
+    public void addCategory(String categoryName) {
+        if(!containsCategory(categoryName)) {
+            Category cat = new Category(categoryName);
+            categories.add(cat);
+        }
+    }
+
+    public void displayCategories() {
+        System.out.println("Categories:");
+        for(int i = 0; i < categories.size(); i++)
+            System.out.println((i + 1) + ". " + categories.get(i).getName());
+    }
+
+    /**
+     * Checks if the given category string exists in the categories
+     * @param categoryName to check
+     * @return true if it exists, false otherwise
+     */
+    public boolean containsCategory(String categoryName) {
+        for(Category category : categories)
+            if(category.getName().equals(categoryName))
+                return true;
+        return false;
+    }
+
+    /**
+     * Adds a subcategory string to a given category name.
+     * Takes care of duplicate adding
+     * @param categoryName to add a subcategory to
+     * @param section to be added to the category
+     */
+    public void addSubcat(String categoryName, String section) {
+        Category cat = getCategory(categoryName);
+        cat.addSub(section);
+    }
+
+    public Category getCategory(String categoryName) {
+        for(Category category : categories)
+            if(categoryName.equals(category.getName()))
+                return category;
+        return null;
+    }
+
+    public ArrayList<Category> getCategories() { return categories; }
+
+    public void setCategories(ArrayList<Category> categories) { this.categories = categories; }
+
+}

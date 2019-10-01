@@ -37,15 +37,14 @@ public class UserInteraction {
 	 * User is able to choose the main category of products to browse and apply filters.
 	 * @param pList to filter
 	 */
-	private void browse(ProductList pList)
-	{
-		pList.displayCategories();
+	private void browse(ProductList pList, CategoryList cList) {
+		cList.displayCategories();
 		int filterIndex = 0;	//preference choice
 
 		System.out.print("\nChoose a Category: ");
 		int cIndex = input.nextInt(); //index of category
 
-		Preference pref = new Preference(pList.categories.get(cIndex-1).getName());
+		Preference pref = new Preference(cList.getCategories().get(cIndex-1).getName());
 		String mainCategory = pref.getSection().get(0);
 
 		System.out.print("Specify product preference (type, price etc.)? Enter (y/n): ");
@@ -54,11 +53,11 @@ public class UserInteraction {
 		if(choice.equals("y")){
 			menu.preferenceMenu();
 			filterIndex = input.nextInt();
-			chooseFilter(filterIndex, pref, mainCategory, pList);
+			chooseFilter(filterIndex, pref, mainCategory, cList);
 		}
 
 		brList.setBrowseList(pList.filteredProducts(pref));
-		filteredResults(filterIndex, cIndex, mainCategory, pList, pref);
+		filteredResults(filterIndex, cIndex, mainCategory, pList, cList, pref);
 
 		brList.displayProducts();
 		dList.setList(brList.getList());
@@ -66,7 +65,7 @@ public class UserInteraction {
 	}
 
 	/**
-	 * Handles the filter functionality of the application.
+	 * Handles the filter functionality of the application. Helper class of browse()
 	 * User chooses one of the 3 filters:
 	 *  (1) Choosing a subcategory
 	 *  (2) Selecting a price range
@@ -74,14 +73,13 @@ public class UserInteraction {
 	 * @param choice to determine what case statement is chosen
 	 * @param pref Preference object
 	 * @param main name of the main category
-	 * @param pList list of products
+	 * @param cList list of product categories
 	 *
 	 */
-	private void chooseFilter(int choice, Preference pref, String main, ProductList pList){
-		switch(choice)
-		{
+	private void chooseFilter(int choice, Preference pref, String main, CategoryList cList){
+		switch(choice) {
 			case 1:
-				pref.selectSubCategory(cat, main, pList);
+				pref.selectSubCategory(cat, main, cList);
 				break;
 			case 2:
 				pref.selectPriceRange();
@@ -93,16 +91,16 @@ public class UserInteraction {
 	}
 
 	/*
-	 * displays the filtered results according to the user's entered preferences.
+	 * displays the filtered results according to the user's entered preferences. Helper class of browse()
 	 * @param filterIndex used to choose which filter to apply
 	 * @param categoryIndex used to choose the main category
 	 * @param main name of the main category
 	 * @param pList list of products
 	 * @param pref
 	 */
-	private void filteredResults(int filterIndex, int categoryIndex, String main, ProductList pList, Preference pref){
-		String subcatName = pList.getCategory(main).getSubcategories().get(0); //name of sub category
-		String maincatName = pList.chooseCategory(categoryIndex).getName(); //name of main category
+	private void filteredResults(int filterIndex, int categoryIndex, String main, ProductList pList, CategoryList cList, Preference pref){
+		String subcatName = cList.getCategory(main).getSubcategories().get(0);//name of sub category
+		String maincatName = cList.chooseCategory(categoryIndex).getName(); //name of main category
 
 		if(filterIndex == 1)
 			System.out.println("\nHere is what we found for " +  subcatName + " " + maincatName + ":\n");
@@ -117,7 +115,7 @@ public class UserInteraction {
 	 * functionalities
 	 * @param pList of all the products
 	 */
-	public void options(ProductList pList) {
+	public void options(ProductList pList, CategoryList cList) {
 		boolean quit = false;
 		while (!quit) {
 			menu.displayMenu();
@@ -126,7 +124,7 @@ public class UserInteraction {
 			System.out.println();
 			switch (choice) {
 				case 1:
-					browse(pList);
+					browse(pList, cList);
 					break;
 				case 2:
 					enterFavList();
@@ -147,19 +145,16 @@ public class UserInteraction {
 	 * Handles functionality for the discarded list.
 	 * @param pList
 	 */
-	private void enterDisList(ProductList pList)
-	{
+	private void enterDisList(ProductList pList) {
 		boolean quit = false;
-		while(!quit)
-		{
+		while(!quit) {
 			System.out.println("Discarded List: ");
 			dList.displayProducts();
 			menu.discardedMenu();
 			
 			System.out.print("Enter choice: ");
 			int choice = input.nextInt();
-			switch(choice)
-			{
+			switch(choice) {
 				case 1:
 					dList.clearList();
 					break;
@@ -176,8 +171,7 @@ public class UserInteraction {
 		/**
 		 * Handles functionality for the favourites list.
 		 */
-		private void enterFavList()
-		{
+		private void enterFavList() {
 			boolean quit = false;
 			while (!quit) {
 				System.out.println("Favourites List: ");
@@ -221,8 +215,7 @@ public class UserInteraction {
 		 * User interaction wrapper function for swapping products in the
 		 * favourites list
 		 */
-		private void swapFList ()
-		{
+		private void swapFList () {
 			System.out.print("Enter 1st item index: ");
 			int first = input.nextInt();
 			System.out.print("Enter 2nd item index: ");
@@ -234,8 +227,7 @@ public class UserInteraction {
 		 * User interaction wrapper function for removing a product from
 		 * the favourites list
 		 */
-		private void removeFromF ()
-		{
+		private void removeFromF () {
 			System.out.print("Enter item index: ");
 			int index = input.nextInt();
 			fList.removeAt(index - 1);
@@ -246,8 +238,7 @@ public class UserInteraction {
 		 * product list
 		 * @param pList to choose a product from
 		 */
-		private void chooseAProduct (ProductList pList)
-		{
+		private void chooseAProduct (ProductList pList) {
 			System.out.print("Choose a product: ");
 			int choice = input.nextInt();
 			Product chosen = brList.getList().get(choice - 1);

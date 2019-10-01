@@ -88,10 +88,10 @@ public class Preference {
 
 	/** displays sub categories for the user to choose from.
 	 */
-	public void selectSubCategory(Category mainCategory, String categoryName, ProductList pList){
-		mainCategory.displaySubcategories(categoryName, pList);
+	public void selectSubCategory(Category mainCategory, String categoryName, CategoryList cList){
+		mainCategory.displaySubcategories(categoryName, cList);
 		int subIndex = userInput.nextInt();
-		addSection(pList.getCategory(categoryName).getSubcategories().get(subIndex - 1));
+		addSection(cList.getCategory(categoryName).getSubcategories().get(subIndex - 1));
 	}
 
 	/**	adds to the preference a specified minimum price and maximum price based on user input.

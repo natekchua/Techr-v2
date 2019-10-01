@@ -25,13 +25,14 @@ public class Database {
 	/**
 	 * A wrapper function for loading a database text file into a 
 	 * given product list
-	 * @param list to build upon with products
+	 * @param pList to build upon with products
+	 * @param cList categories of the products
 	 * @throws FileNotFoundException
 	 */
-	public void loadDatabase(ProductList list) throws FileNotFoundException
+	public void loadDatabase(ProductList pList, CategoryList cList) throws FileNotFoundException
 	{
 		Scanner fileReader = new Scanner(new File("database1.txt"));		
-		parseDatabase(fileReader, list);
+		parseDatabase(fileReader, pList, cList);
 	}
 
 	/**
@@ -44,7 +45,7 @@ public class Database {
 	 * @param file to read from
 	 * @param pList - the list to add all the products to
 	 */
-	public void parseDatabase(Scanner file, ProductList pList)
+	public void parseDatabase(Scanner file, ProductList pList, CategoryList cList)
 	{
 		String line;
 		String[] lineArr = null;
@@ -65,13 +66,12 @@ public class Database {
 			lineArr = line.split(COMMA);
 			productName = lineArr[0];
 			productCategory = lineArr[1];
-			pList.addCategory(productCategory);
+			cList.addCategory(productCategory);
 
-			
 			line = file.nextLine();
 			sections = line.split(COMMA);
 			for(String section : sections)
-				pList.addSubcat(productCategory, section);
+				cList.addSubcat(productCategory, section);
 			
 			price = file.nextDouble();
 			

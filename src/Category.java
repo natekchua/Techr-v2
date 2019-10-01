@@ -33,10 +33,10 @@ public class Category {
 	 *  @param category - the main category
 	 * 	       pList - the productList
 	 */
-	public void displaySubcategories(String category, ProductList pList)
+	public void displaySubcategories(String category, CategoryList cList)
 	{
 		int i = 1;
-		Category cat = pList.getCategory(category);
+		Category cat = cList.getCategory(category);
 		for(String sub : cat.getSubcategories())
 		{
 			System.out.println(i + ". " + sub);
