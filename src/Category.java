@@ -68,17 +68,5 @@ public class Category {
 	{
 		return name;
 	}
-	public void setName(String name) 
-	{
-		this.name = name;
-	}
-	public ArrayList<String> getSubcategories()
-	{
-		return subcategories;
-	}
-	public void setSubcategories(ArrayList<String> subcategories)
-	{
-		this.subcategories = subcategories;
-	}
-
+	public ArrayList<String> getSubcategories() { return subcategories; }
 }

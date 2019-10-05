@@ -8,19 +8,6 @@ public class CategoryList {
     }
 
     /**
-     * Get each and every subcategory from the list of categories
-     * @return an ArrayList of Strings containing all subcategories
-     */
-    public ArrayList<String> getSubcategories() {
-        ArrayList<String> subcategories = new ArrayList<>();
-        for(Category category : categories) {
-            for(String subCategory : category.getSubcategories())
-                subcategories.add(subCategory);
-        }
-        return subcategories;
-    }
-
-    /**
      * Gets the category at the given index. Similar to a get function
      * for an ArrayList
      * @param index of the category to get
@@ -67,9 +54,5 @@ public class CategoryList {
                 return category;
         return null;
     }
-
     public ArrayList<Category> getCategories() { return categories; }
-
-    public void setCategories(ArrayList<Category> categories) { this.categories = categories; }
-
 }
