@@ -131,7 +131,7 @@ public class UserInteraction {
 					enterFavList();
 					break;
 				case 3:
-					enterDisList(pList);
+					enterDisList();
 					break;
 				case 4:
 					quit = true;
@@ -144,9 +144,8 @@ public class UserInteraction {
 	}
 	/**
 	 * Handles functionality for the discarded list.
-	 * @param pList
 	 */
-	private void enterDisList(ProductList pList) {
+	private void enterDisList() {
 		boolean quit = false;
 		while(!quit) {
 			System.out.println("Discarded List: ");

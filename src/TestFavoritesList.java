@@ -91,7 +91,7 @@ class TestFavoritesList {
 		assertEquals("Beta Keyboard", fList.getList().get(1).getName());
 		assertEquals("Alpha Keyboard", fList.getList().get(2).getName());
 	}
-	
+
 	@Test
 	void priceAscendingSortTest()
 	{

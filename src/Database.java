@@ -48,12 +48,12 @@ public class Database {
 	public void parseDatabase(Scanner file, ProductList pList, CategoryList cList)
 	{
 		String line;
-		String[] lineArr = null;
+		String[] lineArr;
 		int numProducts;
 		String productName, productCategory;
-		String[] sections = null;
+		String[] sections;
 		double price;
-		String[] images = null;
+		String[] images;
 		double rating;
 		String url;
 		Product product;
