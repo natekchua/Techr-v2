@@ -71,8 +71,8 @@ public class Database {
 			line = file.nextLine();
 			sections = line.split(COMMA);
 			for(String section : sections)
-				cList.addSubcat(productCategory, section);
-			
+				cList.getCategory(productCategory).addSub(section);
+
 			price = file.nextDouble();
 			
 			file.nextLine();

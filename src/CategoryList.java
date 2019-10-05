@@ -61,17 +61,6 @@ public class CategoryList {
         return false;
     }
 
-    /**
-     * Adds a subcategory string to a given category name.
-     * Takes care of duplicate adding
-     * @param categoryName to add a subcategory to
-     * @param section to be added to the category
-     */
-    public void addSubcat(String categoryName, String section) {
-        Category cat = getCategory(categoryName);
-        cat.addSub(section);
-    }
-
     public Category getCategory(String categoryName) {
         for(Category category : categories)
             if(categoryName.equals(category.getName()))

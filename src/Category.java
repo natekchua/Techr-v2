@@ -72,7 +72,7 @@ public class Category {
 	{
 		this.name = name;
 	}
-	public ArrayList<String> getSubcategories() 
+	public ArrayList<String> getSubcategories()
 	{
 		return subcategories;
 	}
@@ -80,5 +80,5 @@ public class Category {
 	{
 		this.subcategories = subcategories;
 	}
-	
+
 }
