@@ -26,8 +26,7 @@ public class Preference {
 	private Scanner userInput = new Scanner(System.in);
 
 	//this contructor is used in the filtering process and adjusting the preference attributes (for creating new preference objects).
-	Preference(int minRange, int maxRange, ArrayList<String> section, double rating)
-	{
+	Preference(int minRange, int maxRange, ArrayList<String> section, double rating) {
 		this.minRange = minRange;
 		this.maxRange = maxRange;
 		this.section = section;
@@ -35,8 +34,7 @@ public class Preference {
 	}
 	
 	//this constructor is used at the beginning of the browsing phase (user chooses main category).
-	Preference(String mainCategory)
-	{
+	Preference(String mainCategory) {
 		minRange = 0;
 		maxRange = Integer.MAX_VALUE;
 		section.add(mainCategory);
@@ -44,29 +42,8 @@ public class Preference {
 	}
 	
 	//this constructor is used for tests.
-	Preference()
-	{
+	Preference() {
 		
-	}
-	
-	/**	initializes a preference object containing the main category.
-	 *  @param category - the main category
-	 */
-	public Preference createPreference(String category)
-	{
-		ArrayList<String> updatedSection = section;
-		updatedSection.add(0,category);
-		return new Preference (minRange, maxRange, updatedSection, rating);
-	}
-	
-	/**	creates a preference object with a sub-category filter.
-	 *  @param subcategory - the sub-category
-	 */
-	public Preference chooseSubcategory(String subcategory)
-	{
-		ArrayList<String> updatedSection = section;
-		updatedSection.add(1,subcategory);
-		return new Preference (minRange, maxRange, updatedSection, rating);	
 	}
 	
 	/**	adds a sub-category to the existing list of sub-categories
@@ -76,14 +53,6 @@ public class Preference {
 	public void addSection(String section)
 	{
 		this.section.add(section);
-	}
-	
-	/**	displays the all of the sections.
-	 */
-	public void displaySections()
-	{
-		for(String sect : section)
-			System.out.println(sect);
 	}
 
 	/** displays sub categories for the user to choose from.
@@ -96,20 +65,11 @@ public class Preference {
 
 	/**	adds to the preference a specified minimum price and maximum price based on user input.
 	 */
-	public void selectPriceRange()
-	{	
+	public void selectPriceRange() {
 		System.out.print("Enter minimum price: ");
 		setMinRange(userInput.nextInt()); 
 		System.out.print("Enter maximum price: ");
 		setMaxRange(userInput.nextInt());
-	}
-
-	/**	adds to the preference a specified rating based on user input.
-	 */
-	public void selectRating()
-	{		
-		System.out.print("Enter preferred rating: ");
-		setRating(userInput.nextDouble());
 	}
 
 	public int getMinRange()
@@ -137,11 +97,6 @@ public class Preference {
 		return section;
 	}
 
-	public void setSection(ArrayList<String> section)
-	{
-		this.section = section;
-	}
-
 	public double getRating()
 	{
 		return rating;
@@ -152,4 +107,3 @@ public class Preference {
 		this.rating = rating;
 	}
 }
-	

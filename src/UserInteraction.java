@@ -85,7 +85,8 @@ public class UserInteraction {
 				pref.selectPriceRange();
 				break;
 			case 3:
-				pref.selectRating();
+				System.out.print("Enter preferred rating: ");
+				pref.setRating(input.nextDouble());
 				break;
 		}
 	}
