@@ -34,6 +34,8 @@ public class Product{
 		price = 0;
 		rating = 0;
 	}
+
+
 	/**
 	 * Constructor of a Product Object
 	 * @param name
@@ -57,12 +59,10 @@ public class Product{
 	 * 		  -1 if product one goes after product two
 	 */
     static Comparator<Product> alphabetical() {
-        return new Comparator<Product>() {
-        	public int compare(Product one, Product two) {
-                int compareValue = one.name.compareTo(two.name);
-				return Integer.compare(compareValue, 0);
-            }
-        };
+        return (p1, p2) -> {
+			int compareValue = p1.name.compareTo(p2.name);
+			return Integer.compare(compareValue, 0);
+		};
     }
     /**
      * Comparator of Product objects, based on 2 products price attribute
@@ -71,17 +71,15 @@ public class Product{
      * 		  -1 if product one has lesser price than product two
      */
         static Comparator<Product> price() {
-            return new Comparator<Product>() {
-            	public int compare(Product one, Product two) {
-            		double compareValue = one.price - two.price;
-                    if(compareValue < 0)
-                    	return -1;
-                    else if(compareValue == 0)
-                    	return 0;
-                    else
-                    	return 1;
-                }
-            };
+            return (p1, p2) -> {
+				double compareValue = p1.price - p2.price;
+				if(compareValue < 0)
+					return -1;
+				else if(compareValue == 0)
+					return 0;
+				else
+					return 1;
+			};
         }
 
 	public String getName() 

@@ -20,8 +20,6 @@ import java.util.Scanner;
 
 public class FileParser {
 
-	private static String COMMA = ",";
-	
 	/**
 	 * A wrapper function for loading a database text file into a 
 	 * given product list
@@ -58,6 +56,7 @@ public class FileParser {
 		file.nextLine();
 		for(int p = 0; p < numProducts; p++) {
 			line = file.nextLine();
+			String COMMA = ",";
 			lineArr = line.split(COMMA);
 			productName = lineArr[0];
 			productCategory = lineArr[1];
