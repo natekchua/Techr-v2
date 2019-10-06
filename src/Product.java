@@ -27,14 +27,12 @@ public class Product{
 	/**
 	 * This constructor is used for tests
 	 */
-	Product()
-	{
+	Product() {
 		name = "";
 		category = "";
 		section = null;
 		price = 0;
 		rating = 0;
-
 	}
 	/**
 	 * Constructor of a Product Object
@@ -44,8 +42,7 @@ public class Product{
 	 * @param price
 	 * @param rating
 	 */
-	Product(String name, String category, String[] section, double price, double rating)
-	{
+	Product(String name, String category, String[] section, double price, double rating) {
 		this.name = name;
 		this.category = category;
 		this.section = section;

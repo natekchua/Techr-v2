@@ -19,8 +19,7 @@ public class Category {
 	private String name;
 	private ArrayList<String> subcategories;
 
-	public Category(String name)
-	{
+	public Category(String name) {
 		this.name = name;
 		this.subcategories = new ArrayList<>();
 	}
@@ -33,12 +32,10 @@ public class Category {
 	 *  @param category - the main category
 	 * 	       pList - the productList
 	 */
-	public void displaySubcategories(String category, CategoryList cList)
-	{
+	public void displaySubcategories(String category, CategoryList cList) {
 		int i = 1;
 		Category cat = cList.getCategory(category);
-		for(String sub : cat.getSubcategories())
-		{
+		for(String sub : cat.getSubcategories()) {
 			System.out.println(i + ". " + sub);
 			i++;
 		}
@@ -47,8 +44,7 @@ public class Category {
 	/** add a new sub-category under the main category.
 	 *  @param section - the new sub-category to add
 	 */
-	public void addSub(String section)
-	{
+	public void addSub(String section) {
 		if(!containsSub(section))
 			subcategories.add(section);
 	}
@@ -56,8 +52,7 @@ public class Category {
 	/** determines if the sub-category already exists within the main category's sub-categories.
 	 *  @param subcategoryName - the sub-category to check
 	 */
-	protected boolean containsSub(String subcategoryName)
-	{
+	private boolean containsSub(String subcategoryName) {
 		for(String subcategory : subcategories)
 			if(subcategory.equals(subcategoryName))
 				return true;

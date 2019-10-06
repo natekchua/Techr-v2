@@ -29,8 +29,7 @@ public class Database {
 	 * @param cList categories of the products
 	 * @throws FileNotFoundException
 	 */
-	public void loadDatabase(ProductList pList, CategoryList cList) throws FileNotFoundException
-	{
+	public void loadDatabase(ProductList pList, CategoryList cList) throws FileNotFoundException {
 		Scanner fileReader = new Scanner(new File("database1.txt"));		
 		parseDatabase(fileReader, pList, cList);
 	}
@@ -45,8 +44,7 @@ public class Database {
 	 * @param file to read from
 	 * @param pList - the list to add all the products to
 	 */
-	private void parseDatabase(Scanner file, ProductList pList, CategoryList cList)
-	{
+	private void parseDatabase(Scanner file, ProductList pList, CategoryList cList) {
 		String line;
 		String[] lineArr;
 		int numProducts;
@@ -58,8 +56,7 @@ public class Database {
 		
 		numProducts = file.nextInt();
 		file.nextLine();
-		for(int p = 0; p < numProducts; p++)
-		{
+		for(int p = 0; p < numProducts; p++) {
 			line = file.nextLine();
 			lineArr = line.split(COMMA);
 			productName = lineArr[0];

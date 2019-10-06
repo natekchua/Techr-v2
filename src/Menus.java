@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class Menus {
 
-    public void displayMenu()
-    {
+    public void displayMenu() {
         System.out.println("TECHR \n");
         System.out.println("1. Browse");
         System.out.println("2. Favorites List");
@@ -12,16 +11,14 @@ public class Menus {
         System.out.println();
     }
 
-    public void preferenceMenu()
-    {
+    public void preferenceMenu() {
         System.out.println("Choose Preference: \n");
         System.out.println("1. Specify Sub Category");
         System.out.println("2. Specify Price Range");
         System.out.println("3. Specify Rating");
     }
 
-    public void favouritesMenu()
-    {
+    public void favouritesMenu() {
         System.out.println("Managing Favourites List: \n");
         System.out.println("1. Clear");
         System.out.println("2. Sort Alphabetical Ascending");
@@ -33,8 +30,7 @@ public class Menus {
         System.out.println("8. Back");
     }
 
-    public void discardedMenu()
-    {
+    public void discardedMenu() {
         System.out.println("Manage Discarded List: \n");
         System.out.println("1. Clear");
         System.out.println("2. Back");

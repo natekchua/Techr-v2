@@ -12,16 +12,14 @@ class TestFavoritesList {
 	private static final boolean DESCENDING = false;
 
 	@Test
-	void addOneToFavoritesList()
-	{
+	void addOneToFavoritesList() {
 		fList.addToEnd(new Product());
 		int fListProds = fList.getList().size();
 		assertEquals(1, fListProds);
 	}
 
 	@Test
-	void addMultipleToFavoritesList()
-	{
+	void addMultipleToFavoritesList() {
 		fList.addToEnd(new Product());
 		fList.addToEnd(new Product());
 
@@ -30,8 +28,7 @@ class TestFavoritesList {
 	}
 	
 	@Test
-	void removeFromEmptyFavoritesList()
-	{
+	void removeFromEmptyFavoritesList() {
 		fList.removeProduct(new Product());
 
 		int fListProds = fList.getList().size();
@@ -39,8 +36,7 @@ class TestFavoritesList {
 	}
 
 	@Test
-	void removeFromSingletonFavoritesList()
-	{
+	void removeFromSingletonFavoritesList() {
 		fList.addToEnd(testProduct);
 		fList.removeProduct(testProduct);
 
@@ -49,8 +45,7 @@ class TestFavoritesList {
 	}
 	
 	@Test
-	void removeFromFavoritesListWithMultipleProds() 
-	{
+	void removeFromFavoritesListWithMultipleProds() {
 		fList.addToEnd(new Product());
 		fList.addToEnd(testProduct);
 		fList.addToEnd(testProduct2);
@@ -63,8 +58,7 @@ class TestFavoritesList {
 	}
 	
 	@Test
-	void alphabeticalAscendingSortTest()
-	{
+	void alphabeticalAscendingSortTest() {
 		fList.addToEnd(new Product("Beta Keyboard", "Keyboard", new String[]{}, 99.99, 3.0));
 		fList.addToEnd(new Product("Cool Keyboard", "Keyboard", new String[]{}, 109.99, 4.0));
 		fList.addToEnd(new Product("Alpha Keyboard", "Keyboard", new String[]{}, 199.99, 5.0));
@@ -78,8 +72,7 @@ class TestFavoritesList {
 	
 	
 	@Test
-	void alphabeticalDescendingSortTest()
-	{
+	void alphabeticalDescendingSortTest() {
 		fList.addToEnd(new Product("Alpha Keyboard", "Keyboard", new String[]{}, 199.99, 5.0));
 		fList.addToEnd(new Product("Beta Keyboard", "Keyboard", new String[]{}, 99.99, 3.0));
 		fList.addToEnd(new Product("Cool Keyboard", "Keyboard", new String[]{}, 109.99, 4.0));
@@ -118,8 +111,7 @@ class TestFavoritesList {
 	}
 	
 	@Test
-	void productSwapTest()
-	{
+	void productSwapTest() {
 		Product oldFavePC = new Product("Ultra PC", "PC", new String[]{}, 1399.99, 3.0);
 		Product newFavePC = new Product("Super PC", "PC", new String[]{}, 1599.99, 3.0);
 
@@ -127,11 +119,10 @@ class TestFavoritesList {
 		fList.addToEnd(new Product("Random PC", "PC", new String[]{}, 899.99, 4.0));
 		fList.addToEnd(new Product("Random PC 2", "Mice", new String[]{}, 399.99, 3.0));
 		fList.addToEnd(newFavePC);
-		
+
 		fList.swap(0, 3);
-		
+
 		assertEquals(newFavePC, fList.getList().get(0));
 		assertEquals(oldFavePC, fList.getList().get(3));
 	}
-	
 }

@@ -28,8 +28,7 @@ public class BrowseList extends ProductList {
 	/**
 	 * Displays all the products in the browse list
 	 */
-	public void displayProducts() 
-	{
+	public void displayProducts() {
 		for (int i = 0; i < list.size(); i++) {
 			Product currProd = list.get(i);
 			System.out.println((i+1) + ". " + currProd.getName());

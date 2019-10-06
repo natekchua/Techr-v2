@@ -8,8 +8,7 @@ class TestDiscardedList {
 	private DiscardedList dList = new DiscardedList();
 	
 	@Test
-	void clearEmptyDiscardedList() 
-	{
+	void clearEmptyDiscardedList() {
 		dList.clearList();
 		int dListProds = dList.getList().size();
 		
@@ -17,15 +16,13 @@ class TestDiscardedList {
 	}
 	
 	@Test
-	void clearDiscardedListWithProds()
-	{
+	void clearDiscardedListWithProds() {
 		dList.addToFront(new Product());
 		dList.addToFront(new Product());
 		dList.addToFront(new Product());
 		dList.addToFront(new Product());
 		dList.addToFront(new Product());
 
-		
 		dList.clearList();
 		int dListProds = dList.getList().size();
 		

@@ -41,7 +41,7 @@ public class CategoryList {
      * @param categoryName to check
      * @return true if it exists, false otherwise
      */
-    public boolean containsCategory(String categoryName) {
+    private boolean containsCategory(String categoryName) {
         for(Category category : categories)
             if(category.getName().equals(categoryName))
                 return true;

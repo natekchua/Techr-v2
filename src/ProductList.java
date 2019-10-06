@@ -47,8 +47,7 @@ public class ProductList {
 	}
 
 	public void displayProducts() {
-		for(int i = 0; i < list.size(); i++)
-		{
+		for(int i = 0; i < list.size(); i++) {
 			Product currProd = list.get(i);
 			System.out.println((i+1) + ". " + currProd.getName());
 		}
