@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Database {
+public class FileParser {
 
 	private static String COMMA = ",";
 	
@@ -29,9 +29,9 @@ public class Database {
 	 * @param cList categories of the products
 	 * @throws FileNotFoundException
 	 */
-	public void loadDatabase(ProductList pList, CategoryList cList) throws FileNotFoundException {
-		Scanner fileReader = new Scanner(new File("database1.txt"));		
-		parseDatabase(fileReader, pList, cList);
+	public void loadFile(ProductList pList, CategoryList cList) throws FileNotFoundException {
+		Scanner fileReader = new Scanner(new File("file1.txt"));
+		parseFile(fileReader, pList, cList);
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class Database {
 	 * @param file to read from
 	 * @param pList - the list to add all the products to
 	 */
-	private void parseDatabase(Scanner file, ProductList pList, CategoryList cList) {
+	private void parseFile(Scanner file, ProductList pList, CategoryList cList) {
 		String line;
 		String[] lineArr;
 		int numProducts;
