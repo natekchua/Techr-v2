@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 class TestProductList {
 
 	private final ProductList prodList = new ProductList();
+	private final ProductList dList = new ProductList();
+
 
 	@Test
 	void emptyProdList() {
@@ -164,6 +166,28 @@ class TestProductList {
 		
 		int filteredProds = prodList.filteredProducts(pref).size();
 		assertEquals(0, filteredProds);
+	}
+
+	@Test
+	void clearEmptyList() {
+		dList.clearList();
+		int dListProds = dList.getList().size();
+
+		assertEquals(0, dListProds);
+	}
+
+	@Test
+	void clearListWithProds() {
+		dList.addToFront(new Product());
+		dList.addToFront(new Product());
+		dList.addToFront(new Product());
+		dList.addToFront(new Product());
+		dList.addToFront(new Product());
+
+		dList.clearList();
+		int dListProds = dList.getList().size();
+
+		assertEquals(0, dListProds);
 	}
 
 	Preference preferenceBuilder() {

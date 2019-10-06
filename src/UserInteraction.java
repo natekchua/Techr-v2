@@ -25,7 +25,7 @@ class UserInteraction {
 
 	private final Scanner input = new Scanner(System.in);
 	private final FavoritesList fList = new FavoritesList();
-	private final DiscardedList dList = new DiscardedList();
+	private final ProductList dList = new ProductList();
 	private final BrowseList brList = new BrowseList();
 	private final Category cat = new Category();
 	private final Menus menu = new Menus();
