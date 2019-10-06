@@ -22,8 +22,7 @@ public class FavoritesList extends ProductList{
 	 * @param index1 of 1st item
 	 * @param index2 of 2nd item
 	 */
-	public void swap(int index1, int index2)
-	{
+	public void swap(int index1, int index2) {
 		Product p1 = list.get(index1);
 		Product p2 = list.get(index2);
 		// Swap
@@ -37,9 +36,8 @@ public class FavoritesList extends ProductList{
 	 * sorted descending
 	 * @param ascending - specifies if the caller wants an ascending list
 	 */
-	public void alphabeticalSort(boolean ascending)
-	{
-		Collections.sort(list, Product.alphabetical());
+	public void alphabeticalSort(boolean ascending) {
+		list.sort(Product.alphabetical());
 		if(!ascending)
 			Collections.reverse(list);
 	}
@@ -50,9 +48,8 @@ public class FavoritesList extends ProductList{
 	 * sorted descending
 	 * @param ascending - specifies if the caller wants an ascending list
 	 */
-	public void priceSort(boolean ascending)
-	{	
-		Collections.sort(list, Product.price());
+	public void priceSort(boolean ascending) {
+		list.sort(Product.price());
 		if(!ascending)
 			Collections.reverse(list);
 	}
