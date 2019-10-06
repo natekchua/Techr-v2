@@ -4,9 +4,12 @@ import org.junit.jupiter.api.Test;
 
 class TestFavoritesList {
 
-	FavoritesList fList = new FavoritesList();
-	Product testProduct = new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 3000, new String[]{}, 4.0, "url3");
-	Product testProduct2 = new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 2000, new String[]{}, 3.0, "url3");
+	private FavoritesList fList = new FavoritesList();
+	private Product testProduct = new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 3000, 4.0);
+	private Product testProduct2 = new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 2000, 3.0);
+
+	private static final boolean ASCENDING = true;
+	private static final boolean DESCENDING = false;
 
 	@Test
 	void addOneToFavoritesList()
@@ -62,13 +65,11 @@ class TestFavoritesList {
 	@Test
 	void alphabeticalAscendingSortTest()
 	{
-		boolean isAscending = true;
-
-		fList.addToEnd(new Product("Beta Keyboard", "Keyboard", new String[]{}, 99.99, new String[]{}, 3.0, "url1"));
-		fList.addToEnd(new Product("Cool Keyboard", "Keyboard", new String[]{}, 109.99, new String[]{}, 4.0, "url2"));
-		fList.addToEnd(new Product("Alpha Keyboard", "Keyboard", new String[]{}, 199.99, new String[]{}, 5.0, "url3"));
+		fList.addToEnd(new Product("Beta Keyboard", "Keyboard", new String[]{}, 99.99, 3.0));
+		fList.addToEnd(new Product("Cool Keyboard", "Keyboard", new String[]{}, 109.99, 4.0));
+		fList.addToEnd(new Product("Alpha Keyboard", "Keyboard", new String[]{}, 199.99, 5.0));
 		
-		fList.alphabeticalSort(isAscending);
+		fList.alphabeticalSort(ASCENDING);
 
 		assertEquals("Alpha Keyboard", fList.getList().get(0).getName());
 		assertEquals("Beta Keyboard", fList.getList().get(1).getName());
@@ -79,13 +80,11 @@ class TestFavoritesList {
 	@Test
 	void alphabeticalDescendingSortTest()
 	{
-		boolean isAscending = false;
+		fList.addToEnd(new Product("Alpha Keyboard", "Keyboard", new String[]{}, 199.99, 5.0));
+		fList.addToEnd(new Product("Beta Keyboard", "Keyboard", new String[]{}, 99.99, 3.0));
+		fList.addToEnd(new Product("Cool Keyboard", "Keyboard", new String[]{}, 109.99, 4.0));
 		
-		fList.addToEnd(new Product("Alpha Keyboard", "Keyboard", new String[]{}, 199.99, new String[]{}, 5.0, "url3"));
-		fList.addToEnd(new Product("Beta Keyboard", "Keyboard", new String[]{}, 99.99, new String[]{}, 3.0, "url1"));
-		fList.addToEnd(new Product("Cool Keyboard", "Keyboard", new String[]{}, 109.99, new String[]{}, 4.0, "url2"));
-		
-		fList.alphabeticalSort(isAscending);
+		fList.alphabeticalSort(DESCENDING);
 
 		assertEquals("Cool Keyboard", fList.getList().get(0).getName());
 		assertEquals("Beta Keyboard", fList.getList().get(1).getName());
@@ -93,15 +92,12 @@ class TestFavoritesList {
 	}
 
 	@Test
-	void priceAscendingSortTest()
-	{
-		boolean isAscending = true;
+	void priceAscendingSortTest(){
+		fList.addToEnd(new Product("Expensive Mouse", "Mice", new String[]{}, 89.99, 5.0));
+		fList.addToEnd(new Product("Cheap Mouse", "Mice", new String[]{}, 15.99, 3.0));
+		fList.addToEnd(new Product("Average Mouse", "Mice", new String[]{}, 29.99, 4.0));
 		
-		fList.addToEnd(new Product("Expensive Mouse", "Mice", new String[]{}, 89.99, new String[]{}, 5.0, "url3"));
-		fList.addToEnd(new Product("Cheap Mouse", "Mice", new String[]{}, 15.99, new String[]{}, 3.0, "url1"));
-		fList.addToEnd(new Product("Average Mouse", "Mice", new String[]{}, 29.99, new String[]{}, 4.0, "url2"));
-		
-		fList.priceSort(isAscending);
+		fList.priceSort(ASCENDING);
 		
 		assertEquals(15.99, fList.getList().get(0).getPrice());
 		assertEquals(29.99, fList.getList().get(1).getPrice());
@@ -109,15 +105,12 @@ class TestFavoritesList {
 	}
 	
 	@Test
-	void priceDescendingSortTest()
-	{
-		boolean isAscending = false;
-		
-		fList.addToEnd(new Product("Cheap Mouse", "Mice", new String[]{}, 15.99, new String[]{}, 3.0, "url1"));
-		fList.addToEnd(new Product("Average Mouse", "Mice", new String[]{}, 29.99, new String[]{}, 4.0, "url2"));
-		fList.addToEnd(new Product("Expensive Mouse", "Mice", new String[]{}, 89.99, new String[]{}, 5.0, "url3"));
+	void priceDescendingSortTest() {
+		fList.addToEnd(new Product("Cheap Mouse", "Mice", new String[]{}, 15.99, 3.0));
+		fList.addToEnd(new Product("Average Mouse", "Mice", new String[]{}, 29.99, 4.0));
+		fList.addToEnd(new Product("Expensive Mouse", "Mice", new String[]{}, 89.99, 5.0));
 
-		fList.priceSort(isAscending);
+		fList.priceSort(DESCENDING);
 		
 		assertEquals(89.99, fList.getList().get(0).getPrice());
 		assertEquals(29.99, fList.getList().get(1).getPrice());
@@ -127,12 +120,12 @@ class TestFavoritesList {
 	@Test
 	void productSwapTest()
 	{
-		Product oldFavePC = new Product("Ultra PC", "PC", new String[]{}, 1399.99, new String[]{}, 3.0, "url1");
-		Product newFavePC = new Product("Super PC", "PC", new String[]{}, 1599.99, new String[]{}, 3.0, "url1");
+		Product oldFavePC = new Product("Ultra PC", "PC", new String[]{}, 1399.99, 3.0);
+		Product newFavePC = new Product("Super PC", "PC", new String[]{}, 1599.99, 3.0);
 
 		fList.addToEnd(oldFavePC);
-		fList.addToEnd(new Product("Random PC", "PC", new String[]{}, 899.99, new String[]{}, 4.0, "url1"));
-		fList.addToEnd(new Product("Random PC 2", "Mice", new String[]{}, 399.99, new String[]{}, 3.0, "url2"));
+		fList.addToEnd(new Product("Random PC", "PC", new String[]{}, 899.99, 4.0));
+		fList.addToEnd(new Product("Random PC 2", "Mice", new String[]{}, 399.99, 3.0));
 		fList.addToEnd(newFavePC);
 		
 		fList.swap(0, 3);

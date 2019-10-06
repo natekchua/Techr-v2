@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 class TestDiscardedList {
 
-	DiscardedList dList = new DiscardedList();
+	private DiscardedList dList = new DiscardedList();
 	
 	@Test
 	void clearEmptyDiscardedList() 

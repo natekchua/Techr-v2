@@ -2,240 +2,160 @@
 Logitech G502,Mice
 Gaming,Wired
 79.99
-https://www.logitechg.com/assets/64214/10/g502-rgb-tunable-gaming-mouse.png,https://images-na.ssl-images-amazon.com/images/I/71DDxRspFDL._SX355_.jpg
 4.7
-https://www.logitechg.com/en-us/product/g502-proteus-spectrum-rgb-gaming-mouse
 Razer Mamba Chroma,Mice
 Gaming,Wired
 219.99
-https://media.memoryexpress.com/Images/Products/MX59122/0?Size=Large
 2.1
-https://www.memoryexpress.com/Products/MX59122
 Logitech M330,Mice
 Office,Wireless
 39.99
-https://media.memoryexpress.com/Images/Products/MX63958/1?Size=Default,https://media.memoryexpress.com/Images/Products/MX63958/2?Size=Large
 4.9
-https://www.memoryexpress.com/Products/MX63958
 Logitech B100,Mice
 Office,Wired
 12.99
-https://media.memoryexpress.com/Images/Products/MX34717/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX34717/1?Size=Large
 3.9
-https://www.memoryexpress.com/Products/MX34717
 Razer Atheris,Mice
 Gaming,Wireless
 64.99
-https://media.memoryexpress.com/Images/Products/MX68263/0?Size=Default
 3.5
-https://www.memoryexpress.com/Products/MX68263
 SteelSeries Rival 600,Mice
 Gaming,Wired
 99.99
-https://media.memoryexpress.com/Images/Products/MX70275/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX70275/2?Size=Default
 4.6
-https://www.memoryexpress.com/Products/MX70275
 Corsair Pro RGB,Mice
 Gaming,Wired
 69.99
-https://media.memoryexpress.com/Images/Products/MX61716/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX61716/2?Size=Default
 4.0
-https://www.memoryexpress.com/Products/MX61716
 Microsoft Arc Touch Refresh,Mice
 Office,Wireless
 59.99
-https://media.memoryexpress.com/Images/Products/MX42845/1?Size=Default
 3.5
-https://www.memoryexpress.com/Products/MX42845
 Apple Magic Mouse 2,Mice
 Office,Wireless
 99.99
-https://multimedia.bbycastatic.ca/multimedia/products/500x500/103/10398/10398045.jpg
 4.7
-https://www.bestbuy.ca/en-ca/product/apple-apple-magic-mouse-2-mla02ll-a-white-mla02ll-a/10398045.aspx?
 Havit HV-MS997GT White,Mice
 Gaming,Wireless
 17.99
-https://multimedia.bbycastatic.ca/multimedia/products/75x75/107/10733/10733173.jpg,https://multimedia.bbycastatic.ca/multimedia/products/75x75/107/10733/10733173_1.jpg
 3.0
-https://www.bestbuy.ca/en-ca/product/havit-hv-ms997gt-wireless-2-4-ghz-gaming-led-mouse-white-color/10733173.aspx
 Razer Ornata Chroma,Keyboard
 Gaming,Wired
 129.99
-https://media.memoryexpress.com/Images/Products/MX64050/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX64050/1?Size=Default
 4.8
-https://www.memoryexpress.com/Products/MX64050
 SteelSeries Apex M750,Keyboard
 Gaming,Wired
 189.99
-https://media.memoryexpress.com/Images/Products/MX68010/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX68010/1?Size=Default
 4.4
-https://www.memoryexpress.com/Products/MX68010
 Thermaltake Poseidon Z Forged Blue LED,Keyboard
 Gaming,Wired
 139.99
-https://media.memoryexpress.com/Images/Products/MX54340/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX54340/3?Size=Default
 3.9
-https://www.memoryexpress.com/Products/MX54340
 Microsoft Wired Keyboard 600,Keyboard
 Office,Wired
 19.99
-https://media.memoryexpress.com/Images/Products/MX25209/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX25209/1?Size=Default
 4.1
-https://www.memoryexpress.com/Products/MX25209
 Logitech K400 Plus,Keyboard
 Office,Wireless
 49.99
-https://media.memoryexpress.com/Images/Products/MX60065/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX60065/1?Size=Default
 3.0
-https://www.memoryexpress.com/Products/MX60065
 Corsair K70 LUX,Keyboard
 Gaming,Wired
 219.99
-https://media.memoryexpress.com/Images/Products/MX63097/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX63097/3?Size=Default
 4.8
-https://www.memoryexpress.com/Products/MX63097
 Microsoft Wireless Keyboard,Keyboard
 Office,Wireless
 129.99
-https://media.memoryexpress.com/Images/Products/MX70657/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX70657/1?Size=Default
 3.6
-https://www.memoryexpress.com/Products/MX70657
 MadCatz V.5,Keyboard
 Gaming,Wired
 44.99
-https://media.memoryexpress.com/Images/Products/MX30241/0?Size=Default
 2.0
-https://www.memoryexpress.com/Products/MX30241
 Logitech K360 Compact,Keyboard
 Office,Wireless
 39.99
-https://media.memoryexpress.com/Images/Products/MX58172/1?Size=Default
 4.3
-https://www.memoryexpress.com/Products/MX58172
 Cooler Master MasterKey Pro L RGB Mechanical,Keyboard
 Gaming,Wired
 219.99
-https://media.memoryexpress.com/Images/Products/MX61641/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX61641/3?Size=Large,https://media.memoryexpress.com/Images/Products/MX61641/1?Size=Large
 4.5
-https://www.memoryexpress.com/Products/MX61641
 ASUS ZenBook UX430UA-DH74,Laptop
 Office
 1259.99
-https://media.memoryexpress.com/Images/Products/MX68695/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX68695/1?Size=Default
 4.6
-https://www.memoryexpress.com/Products/MX68695
 ASUS ROG STRIX GL503VD-DB74,Laptop
 Gaming
 1799.99
-https://media.memoryexpress.com/Images/Products/MX68686/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX68686/3?Size=Default
 3.9
-https://www.memoryexpress.com/Products/MX68686
 Microsoft Surface Laptop DAH-00001,Laptop
 Office
 1749.99
-https://media.memoryexpress.com/Images/Products/MX67390/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX67390/3?Size=Default,https://media.memoryexpress.com/Images/Products/MX67390/2?Size=Large
 4.7
-https://www.memoryexpress.com/Products/MX67390
 HP ENVY x360 15-BP010CA,Laptop
 Office
 1199.99
-https://media.memoryexpress.com/Images/Products/MX68333/1?Size=Default,https://media.memoryexpress.com/Images/Products/MX68333/3?Size=Default
 3.9
-https://www.memoryexpress.com/Products/MX68333
 Dell XPS 15 15.6" Silver,Laptop
 Office
 1899.99
-https://multimedia.bbycastatic.ca/multimedia/products/500x500/115/11558/11558332.jpg
 3.8
-https://www.bestbuy.ca/en-ca/product/dell-xps-15-15-6-laptop-silver-intel-core-i7-7700hq-256gb-ssd-8gb-ram-windows-10/11558332.aspx?
 MSI GP62M 7RDX-256CA Leopard,Laptop
 Gaming
 1499.99
-https://media.memoryexpress.com/Images/Products/MX67670/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX67670/2?Size=Default
 4.0
-https://www.memoryexpress.com/Products/MX67670
 Microsoft Surface Pro (5th Gen) Tablet FKL-00001,Laptop
 Office
 3449.99
-https://media.memoryexpress.com/Images/Products/MX67320/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX67320/1?Size=Default
 4.9
-https://www.memoryexpress.com/Products/MX67320
 Acer Chromebook C730E,Laptop
 Office
 169.99
-https://media.memoryexpress.com/Images/Products/MX67646/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX67646/1?Size=Default
 3.5
-https://www.memoryexpress.com/Products/MX67646
 MacBook Pro Retina 2014 - A1398,Laptop
 Office
 1699.99
-https://multimedia.bbycastatic.ca/multimedia/products/500x500/123/12301/12301606.jpg
 4.8
-https://www.bestbuy.ca/en-ca/product/macbook-pro-retina-2014-a1398-intel-core-i7-2-2ghz-16gb-ram-500gb-ssd-refurbished/12301606.aspx?
 Razer Blade - 14" Fhd Matte,Laptop
 Gaming
 3918.00
-https://multimedia.bbycastatic.ca/multimedia/products/500x500/122/12219/12219947_2.jpg,https://multimedia.bbycastatic.ca/multimedia/products/500x500/122/12219/12219947_3.jpg
 3.9
-https://www.bestbuy.ca/en-ca/product/razer-blade-14-fhd-matte-i7-7700hq-gtx-1060-1tb-ssd/12219947.aspx?
 CORSAIR ONE PRO,PC
 Gaming
 3249.99
-https://media.memoryexpress.com/Images/Products/MX68257/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX68257/1?Size=Large
 4.2
-https://www.memoryexpress.com/Products/MX68257
 MSI AEGIS Ti3 VR7RE-022US,PC
 Gaming
 3399.99
-https://media.memoryexpress.com/Images/Products/MX66411/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX66411/1?Size=Default
 4.0
-https://www.memoryexpress.com/Products/MX66411
 Lenovo ThinkCentre M700 SFF,PC
 Home
 529.99
-https://media.memoryexpress.com/Images/Products/MX70847/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX70847/1?Size=Default
 3.8
-https://www.memoryexpress.com/Products/MX70847
 ASUS ROG GR8 II-6GT024Z,PC
 Gaming
 1619.99
-https://media.memoryexpress.com/Images/Products/MX69578/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX69578/1?Size=Default
 3.6
-https://www.memoryexpress.com/Products/MX69578
 CYBERPOWERPC Gamer Ultra GUA510,PC
 Gaming
 698.99
-https://multimedia.bbycastatic.ca/multimedia/products/500x500/103/10386/10386115.jpg
 4.5
-https://www.bestbuy.ca/en-ca/product/cyberpowerpc-cyberpowerpc-gamer-ultra-gua510-pc-amd-fx-4300-1tb-hdd-8gb-ram-windows-10-english-gua510/10386115.aspx?
 ASUS Zen AiO ZN270IEUT-DS51T-CB,PC
 Home,All-In-One
 1399.99
-https://media.memoryexpress.com/Images/Products/MX66607/0?Size=Default,https://media.memoryexpress.com/Images/Products/MX66607/1?Size=Large
 3.8
-https://www.memoryexpress.com/Products/MX66607
 CyberPowerPC Gamer Xtreme,PC
 Gaming
 1839.99
-https://multimedia.bbycastatic.ca/multimedia/products/500x500/120/12058/12058248.jpg
 5.0
-https://www.bestbuy.ca/en-ca/product/cyberpowerpc-gamer-xtreme-pc-intel-core-i7-8700k-2tb-hdd-16gb-ram-nvidia-geforce-gtx-1050-ti-eng/12058248.aspx?
 Apple iMac Pro (MQ2Y2LL/A) 27" Intel Xeon W 3.2GHz,PC
 Home
 6299.99
-https://multimedia.bbycastatic.ca/multimedia/products/500x500/122/12291/12291820.jpg,https://multimedia.bbycastatic.ca/multimedia/products/500x500/122/12291/12291820_1.jpg
 3.7
-https://www.bestbuy.ca/en-ca/product/apple-imac-pro-mq2y2ll-a-27-intel-xeon-w-3-2ghz-computer-english/12291820.aspx?
 ASUS VivoPC,PC
 Home,Office
 699.95
-https://multimedia.bbycastatic.ca/multimedia/products/500x500/105/10583/10583708.jpg
 3.4
-https://www.bestbuy.ca/en-ca/product/asus-vivopc-desktop-pc-intel-core-i5-7400-2tb-hdd-8gb-ram-intel-hd-graphics-630-windows-10/10583708.aspx?
 HP ENVY 27" All-in-One,PC
 Home,All-In-One
 1599.97
-https://multimedia.bbycastatic.ca/multimedia/products/500x500/104/10481/10481737.jpg,https://multimedia.bbycastatic.ca/multimedia/products/500x500/104/10481/10481737_1.jpg
 4.5
-https://www.bestbuy.ca/en-ca/product/hp-envy-27-all-in-one-pc-intel-core-i7-6700t-1tb-hdd-128gb-ssd-16gb-ram-nvidia-geforce-gtx-950m/10481737.aspx?

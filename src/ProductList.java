@@ -41,11 +41,6 @@ public class ProductList {
 		list.clear();
 	}
 
-	public void sendToOtherList(int index, ArrayList <Product> list) {
-		Product p = this.list.get(index);
-		list.add(p);
-	}
-
 	public void removeProduct(Product prod)
 	{
 		list.remove(prod);

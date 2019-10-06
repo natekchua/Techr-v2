@@ -45,7 +45,7 @@ public class Database {
 	 * @param file to read from
 	 * @param pList - the list to add all the products to
 	 */
-	public void parseDatabase(Scanner file, ProductList pList, CategoryList cList)
+	private void parseDatabase(Scanner file, ProductList pList, CategoryList cList)
 	{
 		String line;
 		String[] lineArr;
@@ -53,9 +53,7 @@ public class Database {
 		String productName, productCategory;
 		String[] sections;
 		double price;
-		String[] images;
 		double rating;
-		String url;
 		Product product;
 		
 		numProducts = file.nextInt();
@@ -74,21 +72,13 @@ public class Database {
 				cList.getCategory(productCategory).addSub(section);
 
 			price = file.nextDouble();
-			
-			file.nextLine();
-			
-			line = file.nextLine();
-			images = line.split(COMMA);
-			
 			rating = file.nextDouble();
+
 			file.nextLine();
-			
-			url = file.nextLine();
-			
+
 			product = new Product(productName, productCategory, sections, 
-								  price, images, rating, url);
+								  price, rating);
 			pList.addToEnd(product);
 		}
-		
 	}
 }

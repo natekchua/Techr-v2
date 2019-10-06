@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 class TestProductList {
 
 	private ProductList prodList = new ProductList();
-	Preference pref = new Preference();
-
 
 	@Test
 	void emptyProdList() {
@@ -34,8 +32,7 @@ class TestProductList {
 	@Test
 	void oneProdAndNoPreferenceFound() {
 		String [] section = {"Laptop", "Office"};
-		String [] images = {"img1match", "img2match"};
-		prodList.addToEnd(new Product("Cool Laptop", "Laptop", section, 9.99, images, 5.0, "url1"));
+		prodList.addToEnd(new Product("Cool Laptop", "Laptop", section, 9.99, 5.0));
 		Preference pref = new Preference("PC");
 
 		int filteredProds = prodList.filteredProducts(pref).size();
@@ -45,7 +42,7 @@ class TestProductList {
 	
 	@Test
 	void oneProdAndPreferenceFound() {
-		prodList.addToEnd(new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Office"}, 9.99, new String[]{"img1match", "img2match"}, 5.0, "url1"));
+		prodList.addToEnd(new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Office"}, 9.99, 5.0));
 		Preference pref = new Preference("Laptop");
 
 		int filteredProds = prodList.filteredProducts(pref).size();
@@ -56,8 +53,8 @@ class TestProductList {
 	void moreThanOneProdAndNoPrefFound() {
 		String [] images = {"img1match", "img2match"};
 		
-		prodList.addToEnd(new Product("Decent Laptop", "Laptop", new String[]{"Laptop", "Office"}, 999.99, images, 1.9, "url1"));
-		prodList.addToEnd(new Product("Basic Laptop", "Laptop", new String[]{"Laptop", "Office"}, 799.99, images, 2.6, "url2"));
+		prodList.addToEnd(new Product("Decent Laptop", "Laptop", new String[]{"Laptop", "Office"}, 999.99, 1.9));
+		prodList.addToEnd(new Product("Basic Laptop", "Laptop", new String[]{"Laptop", "Office"}, 799.99, 2.6));
 
 		Preference pref = preferenceBuilder();
 
@@ -70,8 +67,8 @@ class TestProductList {
 	void moreThanOneProdAndOnePrefFound() {
 		String [] images = {"img1match", "img2match"};
 		
-		prodList.addToEnd(new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 999.99, images, 5.0, "url1"));
-		prodList.addToEnd(new Product("Basic Laptop", "Laptop", new String[]{"Laptop", "Office"}, 799.99, images, 3.0, "url2"));
+		prodList.addToEnd(new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 999.99, 5.0));
+		prodList.addToEnd(new Product("Basic Laptop", "Laptop", new String[]{"Laptop", "Office"}, 799.99, 3.0));
 
 		Preference pref = preferenceBuilder();
 
@@ -84,9 +81,9 @@ class TestProductList {
 	void moreThanOneProdAndMultiplePrefFound() {
 		String [] images = {"img1match", "img2match"};
 		
-		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 1999.99, images, 5.0, "url3"));
-		prodList.addToEnd(new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 999.99, images, 5.0, "url1"));
-		prodList.addToEnd(new Product("Basic Laptop", "Laptop", new String[]{"Laptop", "Office"}, 799.99, images, 3.0, "url2"));
+		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 1999.99, 5.0));
+		prodList.addToEnd(new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 999.99, 5.0));
+		prodList.addToEnd(new Product("Basic Laptop", "Laptop", new String[]{"Laptop", "Office"}, 799.99, 3.0));
 
 		Preference pref = preferenceBuilder();
 
@@ -97,7 +94,7 @@ class TestProductList {
 	
 	@Test
 	void prodPriceLessThanMinPref() {
-		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{}, 199.99, new String[]{}, 3.0, "url3"));
+		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{}, 199.99, 3.0));
 		
 		Preference pref = preferenceBuilder();
 		
@@ -107,7 +104,7 @@ class TestProductList {
 	
 	@Test
 	void prodPriceGreaterThanMinPref() {
-		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{}, 3999.99, new String[]{}, 3.0, "url3"));
+		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{}, 3999.99, 3.0));
 		
 		Preference pref = preferenceBuilder();
 		
@@ -117,7 +114,7 @@ class TestProductList {
 	
 	@Test
 	void prodPriceInPrefRange() {
-		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 999.99, new String[]{}, 5.0, "url3"));
+		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 999.99, 5.0));
 		
 		Preference pref = preferenceBuilder();
 		
@@ -127,7 +124,7 @@ class TestProductList {
 	
 	@Test
 	void prodPriceIsMinRange() {
-		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 500, new String[]{}, 5.0, "url3"));
+		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 500, 5.0));
 		
 		Preference pref = preferenceBuilder();
 		
@@ -137,7 +134,7 @@ class TestProductList {
 	
 	@Test
 	void prodPriceIsMaxRange() {
-		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 3000, new String[]{}, 5.0, "url3"));
+		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 3000, 5.0));
 		
 		Preference pref = preferenceBuilder();
 		
@@ -147,7 +144,7 @@ class TestProductList {
 	
 	@Test
 	void prodRatingIsRatingPref() {
-		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 3000, new String[]{}, 4.0, "url3"));
+		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 3000, 4.0));
 		
 		Preference pref = preferenceBuilder();
 		
@@ -157,7 +154,7 @@ class TestProductList {
 	
 	@Test
 	void prodRatingIsGreaterThanRatingPref() {
-		prodList.addToEnd(new Product("Best Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 3000, new String[]{}, 5.0, "url3"));
+		prodList.addToEnd(new Product("Best Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 3000, 5.0));
 		
 		Preference pref = preferenceBuilder();
 		
@@ -167,7 +164,7 @@ class TestProductList {
 	
 	@Test
 	void prodRatingIsLessThanRatingPref() {
-		prodList.addToEnd(new Product("Slow Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 2000, new String[]{}, 3.0, "url3"));
+		prodList.addToEnd(new Product("Slow Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 2000, 3.0));
 		
 		Preference pref = preferenceBuilder();
 		

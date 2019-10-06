@@ -63,12 +63,7 @@ public class Product{
         return new Comparator<Product>() {
         	public int compare(Product one, Product two) {
                 int compareValue = one.name.compareTo(two.name);
-                if(compareValue < 0)
-                	return -1;
-                else if(compareValue == 0)
-                	return 0;
-                else
-                	return 1;
+				return Integer.compare(compareValue, 0);
             }
         };
     }
