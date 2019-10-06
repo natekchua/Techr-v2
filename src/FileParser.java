@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class FileParser {
+class FileParser {
 
 	/**
 	 * A wrapper function for loading a database text file into a 

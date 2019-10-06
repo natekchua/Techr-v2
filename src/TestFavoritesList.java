@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 class TestFavoritesList {
 
-	private FavoritesList fList = new FavoritesList();
-	private Product testProduct = new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 3000, 4.0);
-	private Product testProduct2 = new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 2000, 3.0);
+	private final FavoritesList fList = new FavoritesList();
+	private final Product testProduct = new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 3000, 4.0);
+	private final Product testProduct2 = new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 2000, 3.0);
 
 	private static final boolean ASCENDING = true;
 	private static final boolean DESCENDING = false;

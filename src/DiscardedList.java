@@ -7,6 +7,6 @@
  * Purpose:
  * 		- Create an object to be created as a discarded list explicitly
  */
-public class DiscardedList extends ProductList{
+class DiscardedList extends ProductList{
 
 }

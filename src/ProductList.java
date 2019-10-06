@@ -22,9 +22,9 @@
 
 import java.util.ArrayList;
 
-public class ProductList {
+class ProductList {
 
-	protected ArrayList<Product> list;
+	ArrayList<Product> list;
 
 	ProductList() {
 		list = new ArrayList<>();

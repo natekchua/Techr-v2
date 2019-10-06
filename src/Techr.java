@@ -1,11 +1,11 @@
 import java.io.FileNotFoundException;
 
-public class Techr {
+class Techr {
 	
-	private UserInteraction user = new UserInteraction();
-	private FileParser file = new FileParser();
-	private ProductList pList = new ProductList();
-	private CategoryList cList = new CategoryList();
+	private final UserInteraction user = new UserInteraction();
+	private final FileParser file = new FileParser();
+	private final ProductList pList = new ProductList();
+	private final CategoryList cList = new CategoryList();
 
 	private void run() throws FileNotFoundException {
 		file.loadFile(pList, cList);

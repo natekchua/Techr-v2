@@ -21,14 +21,14 @@
 
 import java.util.Scanner;
 
-public class UserInteraction {
+class UserInteraction {
 
-	private Scanner input = new Scanner(System.in);
-	private FavoritesList fList = new FavoritesList();
-	private DiscardedList dList = new DiscardedList();
-	private BrowseList brList = new BrowseList();
-	private Category cat = new Category();
-	private Menus menu = new Menus();
+	private final Scanner input = new Scanner(System.in);
+	private final FavoritesList fList = new FavoritesList();
+	private final DiscardedList dList = new DiscardedList();
+	private final BrowseList brList = new BrowseList();
+	private final Category cat = new Category();
+	private final Menus menu = new Menus();
 	private static final boolean ASCENDING = true;
 	private static final boolean DESCENDING = false;
 
@@ -57,7 +57,7 @@ public class UserInteraction {
 		}
 
 		brList.setBrowseList(pList.filteredProducts(pref));
-		filteredResults(filterIndex, cIndex, mainCategory, pList, cList, pref);
+		filteredResults(filterIndex, cIndex, mainCategory, cList, pref);
 
 		brList.displayProducts();
 		dList.setList(brList.getList());
@@ -99,7 +99,7 @@ public class UserInteraction {
 	 * @param pList list of products
 	 * @param pref
 	 */
-	private void filteredResults(int filterIndex, int categoryIndex, String main, ProductList pList, CategoryList cList, Preference pref){
+	private void filteredResults(int filterIndex, int categoryIndex, String main, CategoryList cList, Preference pref){
 		String subcatName = cList.getCategory(main).getSubcategories().get(0);//name of sub category
 		String maincatName = cList.chooseCategory(categoryIndex).getName(); //name of main category
 

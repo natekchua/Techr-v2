@@ -14,7 +14,7 @@
 
 import java.util.Collections;
 
-public class FavoritesList extends ProductList{
+class FavoritesList extends ProductList{
 	
 	/**
 	 * Swaps 2 items in the list with given indices.

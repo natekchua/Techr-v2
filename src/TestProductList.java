@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 class TestProductList {
 
-	private ProductList prodList = new ProductList();
+	private final ProductList prodList = new ProductList();
 
 	@Test
 	void emptyProdList() {
@@ -51,8 +51,6 @@ class TestProductList {
 	}
 	@Test
 	void moreThanOneProdAndNoPrefFound() {
-		String [] images = {"img1match", "img2match"};
-		
 		prodList.addToEnd(new Product("Decent Laptop", "Laptop", new String[]{"Laptop", "Office"}, 999.99, 1.9));
 		prodList.addToEnd(new Product("Basic Laptop", "Laptop", new String[]{"Laptop", "Office"}, 799.99, 2.6));
 
@@ -65,8 +63,6 @@ class TestProductList {
 	
 	@Test
 	void moreThanOneProdAndOnePrefFound() {
-		String [] images = {"img1match", "img2match"};
-		
 		prodList.addToEnd(new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 999.99, 5.0));
 		prodList.addToEnd(new Product("Basic Laptop", "Laptop", new String[]{"Laptop", "Office"}, 799.99, 3.0));
 
@@ -79,8 +75,6 @@ class TestProductList {
 	
 	@Test
 	void moreThanOneProdAndMultiplePrefFound() {
-		String [] images = {"img1match", "img2match"};
-		
 		prodList.addToEnd(new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 1999.99, 5.0));
 		prodList.addToEnd(new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 999.99, 5.0));
 		prodList.addToEnd(new Product("Basic Laptop", "Laptop", new String[]{"Laptop", "Office"}, 799.99, 3.0));

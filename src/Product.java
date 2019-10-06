@@ -16,13 +16,13 @@
 
 import java.util.Comparator;
 
-public class Product{
+class Product{
 		
-	private String name;
-	private String category;
-	private String[] section;
-	private double price;
-	private double rating;
+	private final String name;
+	private final String category;
+	private final String[] section;
+	private final double price;
+	private final double rating;
 
 	/**
 	 * This constructor is used for tests

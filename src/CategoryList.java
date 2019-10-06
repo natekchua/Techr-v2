@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
-public class CategoryList {
-    private ArrayList<Category> categories;
+class CategoryList {
+    private final ArrayList<Category> categories;
 
     CategoryList(){
         categories = new ArrayList<>();

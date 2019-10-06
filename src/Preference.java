@@ -17,13 +17,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Preference {
+class Preference {
 
 	private int minRange;
 	private int maxRange;
 	private ArrayList<String> section = new ArrayList<>();
 	private double rating;
-	private Scanner userInput = new Scanner(System.in);
+	private final Scanner userInput = new Scanner(System.in);
 
 	//this contructor is used in the filtering process and adjusting the preference attributes (for creating new preference objects).
 	Preference(int minRange, int maxRange, ArrayList<String> section, double rating) {

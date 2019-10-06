@@ -1,6 +1,5 @@
-import java.util.Scanner;
 
-public class Menus {
+class Menus {
 
     public void displayMenu() {
         System.out.println("TECHR \n");
