@@ -146,25 +146,17 @@ class UserInteraction {
 	 * Handles functionality for the discarded list.
 	 */
 	private void enterDisList() {
-		boolean quit = false;
-		while(!quit) {
+		boolean proceed = true;
+		while(proceed) {
 			System.out.println("Discarded List: ");
 			dList.displayProducts();
 			menu.discardedMenu();
 			
 			System.out.print("Enter choice: ");
 			int choice = input.nextInt();
-			switch(choice) {
-				case 1:
-					dList.clearList();
-					break;
-				case 2:
-					quit = true;
-					break;
-				default:
-					System.out.println("invalid choice");
-					break;
-			}
+			if(choice == 2)	proceed = false;
+			else if(choice == 1) dList.clearList();
+			else System.out.println("Invalid choice.\n");
 		}
 	}
 
