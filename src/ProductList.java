@@ -41,7 +41,7 @@ class ProductList {
 	public void removeProductAtIndex() {
 		System.out.print("Enter product index: ");
 		int index = input.nextInt();
-		list.remove(index);
+		list.remove(index-1);
 	}
 
 	public void clearList() {

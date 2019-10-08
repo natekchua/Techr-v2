@@ -23,15 +23,20 @@ class Menus {
     public void favouritesMenu() {
         System.out.println("\nManaging Favourites List:");
         System.out.println("1. Clear");
-        System.out.println("2. Sort Alphabetical Ascending");
-        System.out.println("3. Sort Alphabetical Descending");
-        System.out.println("4. Sort Price Ascending");
-        System.out.println("5. Sort Price Descending");
-        System.out.println("6. Swap");
-        System.out.println("7. Remove");
-        System.out.println("8. Back");
+        System.out.println("2. Sort List");
+        System.out.println("3. Swap");
+        System.out.println("4. Remove");
+        System.out.println("5. Back");
     }
 
+    public void sortOptions(){
+        System.out.println("\nSort:");
+        System.out.println("1. Alphabetical in Ascending Order");
+        System.out.println("2. Alphabetical in Descending Order");
+        System.out.println("3. Price in Ascending Order");
+        System.out.println("4. Price in Descending Order");
+
+    }
     public void discardedMenu() {
         System.out.println("Manage Discarded List: \n");
         System.out.println("1. Clear");

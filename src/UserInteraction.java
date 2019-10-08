@@ -19,7 +19,7 @@
  * 		  object
  */
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 class UserInteraction {
@@ -89,6 +89,9 @@ class UserInteraction {
 				System.out.print("Enter preferred rating: ");
 				pref.setRating(input.nextDouble());
 				break;
+			default:
+				System.out.println("invalid choice");
+				break;
 		}
 	}
 
@@ -155,6 +158,7 @@ class UserInteraction {
 			
 			System.out.print("Enter choice: ");
 			int choice = input.nextInt();
+
 			if(choice == 2)	proceed = false;
 			else if(choice == 1) dList.clearList();
 			else System.out.println("Invalid choice.\n");
@@ -165,12 +169,9 @@ class UserInteraction {
 		 * Handles functionality for the favourites list.
 		 */
 		private void enterFavList() {
-			Alphabetical alphabetical = new Alphabetical();
-			Numerical numerical = new Numerical();
-
-			boolean quit = false;
-			while (!quit) {
-				System.out.println("Favourites List: ");
+			boolean proceed = true;
+			while (proceed) {
+				System.out.println("\nFavourites List: ");
 				fList.displayProducts();
 				menu.favouritesMenu();
 				System.out.print("\nEnter choice: ");
@@ -181,25 +182,16 @@ class UserInteraction {
 						fList.clearList();
 						break;
 					case 2:
-						alphabetical.sort(ASCENDING, fList.getList());
-						break;
+					    chooseSortType().sort();
+					    break;
 					case 3:
-						alphabetical.sort(DESCENDING, fList.getList());
-						break;
-					case 4:
-						numerical.sort(ASCENDING, fList.getList());
-						break;
-					case 5:
-						numerical.sort(DESCENDING, fList.getList());
-						break;
-					case 6:
 						fList.swapFListProducts();
 						break;
-					case 7:
+					case 4:
 						fList.removeProductAtIndex();
 						break;
-					case 8:
-						quit = true;
+					case 5:
+						proceed = false;
 						break;
 					default:
 						System.out.println("invalid choice");
@@ -208,8 +200,19 @@ class UserInteraction {
 			}
 		}
 
-//	private Sortable createSortBuilder(int choice) {
-//	}
+		/*
+		 * choose type of sort to apply to favorite list.
+		 */
+	    private Sortable chooseSortType() {
+			HashMap<Integer, Sortable> sorts = new HashMap<>();
+			sorts.put(1, new Alphabetical(ASCENDING, fList.getList()));
+			sorts.put(2, new Alphabetical(DESCENDING, fList.getList()));
+			sorts.put(3, new Numerical(ASCENDING, fList.getList()));
+			sorts.put(4, new Numerical(DESCENDING, fList.getList()));
+
+			menu.sortOptions();
+			return sorts.get(input.nextInt());
+	}
 
 		/**
 		 * User interaction wrapper function for choosing a product with a given
@@ -219,7 +222,7 @@ class UserInteraction {
 		private void chooseAProduct (ProductList pList) {
 			System.out.print("\nChoose a product: ");
 			int choice = input.nextInt();
-			Product chosen = brList.getList().get(choice - 1);
+			Product chosen = brList.getList().get(choice-1);
 			fList.addToEnd(chosen);
 			pList.removeProduct(chosen);
 		}
