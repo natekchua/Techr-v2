@@ -2,7 +2,10 @@
 class Menus {
 
     public void displayMenu() {
-        System.out.println("TECHR \n");
+        System.out.println("\n*****");
+        System.out.println("TECHR");
+        System.out.println("*****\n");
+
         System.out.println("1. Browse");
         System.out.println("2. Favorites List");
         System.out.println("3. Previously Viewed");
@@ -11,14 +14,14 @@ class Menus {
     }
 
     public void preferenceMenu() {
-        System.out.println("Choose Preference: \n");
+        System.out.println("\nChoose Preference: ");
         System.out.println("1. Specify Sub Category");
         System.out.println("2. Specify Price Range");
         System.out.println("3. Specify Rating");
     }
 
     public void favouritesMenu() {
-        System.out.println("Managing Favourites List: \n");
+        System.out.println("\nManaging Favourites List:");
         System.out.println("1. Clear");
         System.out.println("2. Sort Alphabetical Ascending");
         System.out.println("3. Sort Alphabetical Descending");

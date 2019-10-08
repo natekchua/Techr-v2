@@ -12,12 +12,10 @@
  * 		  alphabetically or by price
  */
 
-import java.util.Collections;
-
 class FavoritesList extends ProductList{
-	
+
 	/**
-	 * Swaps 2 items in the list with given indices.
+	 * Swaps 2 items in the list with given indices. Helper for swapFListProducts()
 	 * Assumes the list is not empty
 	 * @param index1 of 1st item
 	 * @param index2 of 2nd item
@@ -29,29 +27,16 @@ class FavoritesList extends ProductList{
 		list.set(index1, p2);
 		list.set(index2, p1);
 	}
-	
+
 	/**
-	 * Sorts the list alphabetically in either ascending or descending. If the 
-	 * given boolean is true, it is sorted ascending, otherwise it is 
-	 * sorted descending
-	 * @param ascending - specifies if the caller wants an ascending list
+	 * User interaction wrapper function for swapping products in the
+	 * favourites list
 	 */
-	public void alphabeticalSort(boolean ascending) {
-		list.sort(Product.alphabetical());
-		if(!ascending)
-			Collections.reverse(list);
+	public void swapFListProducts () {
+		System.out.print("Enter 1st product index: ");
+		int p1Index = input.nextInt();
+		System.out.print("Enter 2nd product index: ");
+		int p2Index = input.nextInt();
+		swap(p1Index-1,p2Index-1);
 	}
-	
-	/**
-	 * Sorts the list by price in either ascending or descending. If the 
-	 * given boolean is true, it is sorted ascending, otherwise it is 
-	 * sorted descending
-	 * @param ascending - specifies if the caller wants an ascending list
-	 */
-	public void priceSort(boolean ascending) {
-		list.sort(Product.price());
-		if(!ascending)
-			Collections.reverse(list);
-	}
-	
 }

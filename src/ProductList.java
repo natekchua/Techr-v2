@@ -21,10 +21,12 @@
  */
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class ProductList {
 
 	ArrayList<Product> list;
+	protected Scanner input = new Scanner(System.in);
 
 	ProductList() {
 		list = new ArrayList<>();
@@ -32,15 +34,23 @@ class ProductList {
 	
 	public void addToEnd(Product prod){ list.add(prod); } //favorites
 	public void addToFront(Product prod) { list.add(0, prod); } //discarded
-	public void removeAt(int index)
-	{
+
+	/**
+	 * removing a product from product list using index
+	 */
+	public void removeProductAtIndex() {
+		System.out.print("Enter product index: ");
+		int index = input.nextInt();
 		list.remove(index);
 	}
-	public void clearList()
-	{
+
+	public void clearList() {
 		list.clear();
 	}
 
+	/**
+	 * removing a product from product list
+	 */
 	public void removeProduct(Product prod)
 	{
 		list.remove(prod);

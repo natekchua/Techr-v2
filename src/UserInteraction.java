@@ -19,6 +19,7 @@
  * 		  object
  */
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class UserInteraction {
@@ -164,34 +165,38 @@ class UserInteraction {
 		 * Handles functionality for the favourites list.
 		 */
 		private void enterFavList() {
+			Alphabetical alphabetical = new Alphabetical();
+			Numerical numerical = new Numerical();
+
 			boolean quit = false;
 			while (!quit) {
 				System.out.println("Favourites List: ");
 				fList.displayProducts();
 				menu.favouritesMenu();
-				System.out.print("Enter choice: ");
+				System.out.print("\nEnter choice: ");
 				int choice = input.nextInt();
+
 				switch (choice) {
 					case 1:
 						fList.clearList();
 						break;
 					case 2:
-						fList.alphabeticalSort(ASCENDING);
+						alphabetical.sort(ASCENDING, fList.getList());
 						break;
 					case 3:
-						fList.alphabeticalSort(DESCENDING);
+						alphabetical.sort(DESCENDING, fList.getList());
 						break;
 					case 4:
-						fList.priceSort(ASCENDING);
+						numerical.sort(ASCENDING, fList.getList());
 						break;
 					case 5:
-						fList.priceSort(DESCENDING);
+						numerical.sort(DESCENDING, fList.getList());
 						break;
 					case 6:
-						swapFList();
+						fList.swapFListProducts();
 						break;
 					case 7:
-						removeFromF();
+						fList.removeProductAtIndex();
 						break;
 					case 8:
 						quit = true;
@@ -203,27 +208,8 @@ class UserInteraction {
 			}
 		}
 
-		/**
-		 * User interaction wrapper function for swapping products in the
-		 * favourites list
-		 */
-		private void swapFList () {
-			System.out.print("Enter 1st item index: ");
-			int first = input.nextInt();
-			System.out.print("Enter 2nd item index: ");
-			int second = input.nextInt();
-			fList.swap(first - 1, second - 1);
-		}
-
-		/**
-		 * User interaction wrapper function for removing a product from
-		 * the favourites list
-		 */
-		private void removeFromF () {
-			System.out.print("Enter item index: ");
-			int index = input.nextInt();
-			fList.removeAt(index - 1);
-		}
+//	private Sortable createSortBuilder(int choice) {
+//	}
 
 		/**
 		 * User interaction wrapper function for choosing a product with a given
@@ -231,7 +217,7 @@ class UserInteraction {
 		 * @param pList to choose a product from
 		 */
 		private void chooseAProduct (ProductList pList) {
-			System.out.print("Choose a product: ");
+			System.out.print("\nChoose a product: ");
 			int choice = input.nextInt();
 			Product chosen = brList.getList().get(choice - 1);
 			fList.addToEnd(chosen);

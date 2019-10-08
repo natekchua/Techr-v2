@@ -7,6 +7,8 @@ class TestFavoritesList {
 	private final FavoritesList fList = new FavoritesList();
 	private final Product testProduct = new Product("Amazing Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 3000, 4.0);
 	private final Product testProduct2 = new Product("Cool Laptop", "Laptop", new String[]{"Laptop", "Gaming"}, 2000, 3.0);
+	private final Alphabetical alphabetical = new Alphabetical();
+	private final Numerical numerical = new Numerical();
 
 	private static final boolean ASCENDING = true;
 	private static final boolean DESCENDING = false;
@@ -63,7 +65,7 @@ class TestFavoritesList {
 		fList.addToEnd(new Product("Cool Keyboard", "Keyboard", new String[]{}, 109.99, 4.0));
 		fList.addToEnd(new Product("Alpha Keyboard", "Keyboard", new String[]{}, 199.99, 5.0));
 		
-		fList.alphabeticalSort(ASCENDING);
+		alphabetical.sort(ASCENDING, fList.getList());
 
 		assertEquals("Alpha Keyboard", fList.getList().get(0).getName());
 		assertEquals("Beta Keyboard", fList.getList().get(1).getName());
@@ -76,8 +78,8 @@ class TestFavoritesList {
 		fList.addToEnd(new Product("Alpha Keyboard", "Keyboard", new String[]{}, 199.99, 5.0));
 		fList.addToEnd(new Product("Beta Keyboard", "Keyboard", new String[]{}, 99.99, 3.0));
 		fList.addToEnd(new Product("Cool Keyboard", "Keyboard", new String[]{}, 109.99, 4.0));
-		
-		fList.alphabeticalSort(DESCENDING);
+
+		alphabetical.sort(DESCENDING, fList.getList());
 
 		assertEquals("Cool Keyboard", fList.getList().get(0).getName());
 		assertEquals("Beta Keyboard", fList.getList().get(1).getName());
@@ -89,8 +91,8 @@ class TestFavoritesList {
 		fList.addToEnd(new Product("Expensive Mouse", "Mice", new String[]{}, 89.99, 5.0));
 		fList.addToEnd(new Product("Cheap Mouse", "Mice", new String[]{}, 15.99, 3.0));
 		fList.addToEnd(new Product("Average Mouse", "Mice", new String[]{}, 29.99, 4.0));
-		
-		fList.priceSort(ASCENDING);
+
+		numerical.sort(ASCENDING, fList.getList());
 		
 		assertEquals(15.99, fList.getList().get(0).getPrice());
 		assertEquals(29.99, fList.getList().get(1).getPrice());
@@ -103,7 +105,7 @@ class TestFavoritesList {
 		fList.addToEnd(new Product("Average Mouse", "Mice", new String[]{}, 29.99, 4.0));
 		fList.addToEnd(new Product("Expensive Mouse", "Mice", new String[]{}, 89.99, 5.0));
 
-		fList.priceSort(DESCENDING);
+		numerical.sort(DESCENDING, fList.getList());
 		
 		assertEquals(89.99, fList.getList().get(0).getPrice());
 		assertEquals(29.99, fList.getList().get(1).getPrice());
