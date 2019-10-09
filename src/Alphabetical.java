@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Alphabetical implements Sortable {
-    private boolean isAscending;
-    private ArrayList list;
+    private final boolean isAscending;
+    private final ArrayList list;
 
     //constructor with ascending boolean and list to sort
     Alphabetical(boolean isAscending, ArrayList list){

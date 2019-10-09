@@ -26,7 +26,7 @@ import java.util.Scanner;
 class ProductList {
 
 	ArrayList<Product> list;
-	protected Scanner input = new Scanner(System.in);
+	protected final Scanner input = new Scanner(System.in);
 
 	ProductList() {
 		list = new ArrayList<>();
@@ -75,10 +75,10 @@ class ProductList {
 	public ArrayList<Product> filteredProducts(Preference p) {
 		ArrayList<Product> filteredList = new ArrayList<>();
 		for (Product pr : list) {
-			if(filterCheck(pr.getCategory(), pr.getSection(), p.getSection()) &&
-			   pr.getCategory().equals(p.getSection().get(0)) &&
-			   priceRangeCheck(pr.getPrice(), p.getMinRange(), p.getMaxRange()) &&
-			   ratingCheck(pr.getRating(), p.getRating()))
+			if(filterCheck(pr.getCategory(), pr.getSection(), p.getSection()) && 	//compare sections
+			   pr.getCategory().equals(p.getSection().get(0)) &&					//ensure product category
+			   priceRangeCheck(pr.getPrice(), p.getMinRange(), p.getMaxRange()) &&	//price filter
+			   ratingCheck(pr.getRating(), p.getRating()))							//rating filter
 				filteredList.add(pr);
 		}
 		return filteredList;

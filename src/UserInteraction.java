@@ -27,7 +27,7 @@ class UserInteraction {
 	private final Scanner input = new Scanner(System.in);
 	private final FavoritesList fList = new FavoritesList();
 	private final ProductList hList = new ProductList();	//history list
-	private final BrowseList brList = new BrowseList();
+	private final ProductList brList = new ProductList();
 	private final Category cat = new Category();
 	private final Menus menu = new Menus();
 	private static final boolean ASCENDING = true;
@@ -58,7 +58,7 @@ class UserInteraction {
 			chooseFilter(filterIndex, pref, mainCategory, cList); //apply chosen filter to list
 		}
 
-		brList.setBrowseList(pList.filteredProducts(pref));
+		brList.setList(pList.filteredProducts(pref));
 		filteredResults(filterIndex, cIndex, mainCategory, cList, pref);
 
 		brList.displayProducts();
