@@ -5,11 +5,13 @@ public class Alphabetical implements Sortable {
     private boolean isAscending;
     private ArrayList list;
 
+    //constructor with ascending boolean and list to sort
     Alphabetical(boolean isAscending, ArrayList list){
         this.isAscending = isAscending;
         this.list = list;
     }
 
+    @Override
     public void sort(){
         list.sort(Product.alphabetical());
         if(!isAscending)

@@ -37,6 +37,6 @@ class FavoritesList extends ProductList{
 		int p1Index = input.nextInt();
 		System.out.print("Enter 2nd product index: ");
 		int p2Index = input.nextInt();
-		swap(p1Index-1,p2Index-1);
+		swap(p1Index-1, p2Index-1);
 	}
 }

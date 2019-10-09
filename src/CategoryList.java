@@ -13,8 +13,7 @@ class CategoryList {
      * @param index of the category to get
      * @return the category chosen
      */
-    public Category chooseCategory(int index)
-    {
+    public Category chooseCategory(int index) {
         return categories.get(index-1);
     }
 
@@ -30,6 +29,7 @@ class CategoryList {
         }
     }
 
+    //method to display categories in category list
     public void displayCategories() {
         System.out.println("Categories:");
         for(int i = 0; i < categories.size(); i++)
@@ -48,11 +48,17 @@ class CategoryList {
         return false;
     }
 
+    /**
+     * retrieve category object given the category name
+     * @param categoryName to get
+     * @return category
+     */
     public Category getCategory(String categoryName) {
         for(Category category : categories)
             if(categoryName.equals(category.getName()))
                 return category;
         return null;
     }
+
     public ArrayList<Category> getCategories() { return categories; }
 }

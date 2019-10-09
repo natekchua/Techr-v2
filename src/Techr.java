@@ -14,9 +14,9 @@ class Techr {
 
 	public static void main(String[] args) {
 	
-		Techr prg = new Techr();
+		Techr program = new Techr();
 		try {
-			prg.run();	
+			program.run();
 		}
 		catch(FileNotFoundException ex) {
 			ex.printStackTrace();

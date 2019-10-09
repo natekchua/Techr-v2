@@ -50,8 +50,7 @@ class Preference {
 	 *  @param section - the additional sub-category
 	 *  details: a "section" is considered to be an attribute of a product which has two or more sub-categories to its name.
 	 */
-	public void addSection(String section)
-	{
+	public void addSection(String section) {
 		this.section.add(section);
 	}
 

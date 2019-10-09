@@ -41,6 +41,7 @@ class FileParser {
 	 * product provides.
 	 * @param file to read from
 	 * @param pList - the list to add all the products to
+	 * @param cList - list of categories of the products
 	 */
 	private void parseFile(Scanner file, ProductList pList, CategoryList cList) {
 		String line;

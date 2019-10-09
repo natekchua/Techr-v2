@@ -5,11 +5,13 @@ public class Numerical implements Sortable {
     private boolean isAscending;
     private ArrayList list;
 
+    //constructor with ascending boolean and list to sort
     Numerical(boolean isAscending, ArrayList list){
         this.isAscending = isAscending;
         this.list = list;
     }
 
+    @Override
     public void sort(){
         list.sort(Product.price());
         if(!isAscending)

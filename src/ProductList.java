@@ -32,8 +32,8 @@ class ProductList {
 		list = new ArrayList<>();
 	}
 	
-	public void addToEnd(Product prod){ list.add(prod); } //favorites
-	public void addToFront(Product prod) { list.add(0, prod); } //discarded
+	public void addToEnd(Product prod){ list.add(prod); } 				//used to add to favorites list
+	public void addToFront(Product prod) { list.add(0, prod); }   //used to add to recent history list
 
 	/**
 	 * removing a product from product list using index
@@ -44,6 +44,7 @@ class ProductList {
 		list.remove(index-1);
 	}
 
+	//clears the product list
 	public void clearList() {
 		list.clear();
 	}
@@ -51,8 +52,7 @@ class ProductList {
 	/**
 	 * removing a product from product list
 	 */
-	public void removeProduct(Product prod)
-	{
+	public void removeProduct(Product prod) {
 		list.remove(prod);
 	}
 
@@ -125,14 +125,6 @@ class ProductList {
 		return (rating >= prefRating);
 	}
 	
-	public ArrayList<Product> getList()
-	{
-		return list;
-	}
-
-	public void setList(ArrayList<Product> list)
-	{
-		this.list = list;
-	}
-
+	public ArrayList<Product> getList() { return list; }
+	public void setList(ArrayList<Product> list) { this.list = list; }
 }

@@ -19,18 +19,20 @@ public class Category {
 	private String name;
 	private ArrayList<String> subcategories;
 
+	//constructor with category name
 	public Category(String name) {
 		this.name = name;
 		this.subcategories = new ArrayList<>();
 	}
 
+	//empty constructor
 	public Category(){
 
 	}
 	
 	/**	Display all sub-categories of a selected main category from the list of products. 
 	 *  @param category - the main category
-	 * 	       pList - the productList
+	 * 	@param cList    - the category List
 	 */
 	public void displaySubcategories(String category, CategoryList cList) {
 		int i = 1;

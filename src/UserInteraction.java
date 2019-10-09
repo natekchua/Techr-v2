@@ -26,7 +26,7 @@ class UserInteraction {
 
 	private final Scanner input = new Scanner(System.in);
 	private final FavoritesList fList = new FavoritesList();
-	private final ProductList dList = new ProductList();
+	private final ProductList hList = new ProductList();	//history list
 	private final BrowseList brList = new BrowseList();
 	private final Category cat = new Category();
 	private final Menus menu = new Menus();
@@ -40,7 +40,7 @@ class UserInteraction {
 	 */
 	private void browse(ProductList pList, CategoryList cList) {
 		cList.displayCategories();
-		int filterIndex = 0;	//preference choice
+		int filterIndex = 0;		  //preference choice
 
 		System.out.print("\nChoose a Category: ");
 		int cIndex = input.nextInt(); //index of category
@@ -52,16 +52,17 @@ class UserInteraction {
 		String choice = input.next();
 
 		if(choice.equals("y")){
-			menu.preferenceMenu();
+			menu.preferenceMenu();	//display filter options
+			System.out.println("\nEnter Choice: ");
 			filterIndex = input.nextInt();
-			chooseFilter(filterIndex, pref, mainCategory, cList);
+			chooseFilter(filterIndex, pref, mainCategory, cList); //apply chosen filter to list
 		}
 
 		brList.setBrowseList(pList.filteredProducts(pref));
 		filteredResults(filterIndex, cIndex, mainCategory, cList, pref);
 
 		brList.displayProducts();
-		dList.setList(brList.getList());
+		hList.setList(brList.getList());	//set recent history
 		chooseAProduct(pList);
 	}
 
@@ -119,26 +120,27 @@ class UserInteraction {
 	 * The main function which handles all the terminal application
 	 * functionalities
 	 * @param pList of all the products
+	 * @param cList of product categories
 	 */
 	public void options(ProductList pList, CategoryList cList) {
-		boolean quit = false;
-		while (!quit) {
+		boolean proceed = true;
+		while (proceed) {
 			menu.displayMenu();
 			System.out.print("Enter choice: ");
 			int choice = input.nextInt();
 			System.out.println();
 			switch (choice) {
-				case 1:
+				case 1:	//Browse
 					browse(pList, cList);
 					break;
-				case 2:
+				case 2:	//Favorites List
 					enterFavList();
 					break;
-				case 3:
-					enterDisList();
+				case 3:	//History
+					enterHistoryList();
 					break;
 				case 4:
-					quit = true;
+					proceed = false;
 					break;
 				default:
 					System.out.println("invalid choice");
@@ -146,27 +148,28 @@ class UserInteraction {
 			}
 		}
 	}
+
 	/**
-	 * Handles functionality for the discarded list.
+	 * Handles functionality for the recent history list.
 	 */
-	private void enterDisList() {
+	private void enterHistoryList() {
 		boolean proceed = true;
 		while(proceed) {
-			System.out.println("Discarded List: ");
-			dList.displayProducts();
-			menu.discardedMenu();
+			System.out.println("Recent History: ");
+			hList.displayProducts();
+			menu.historyMenu();
 			
 			System.out.print("Enter choice: ");
 			int choice = input.nextInt();
 
-			if(choice == 2)	proceed = false;
-			else if(choice == 1) dList.clearList();
+			if(choice == 2)	proceed = false;				//Back
+			else if(choice == 1) hList.clearList();			//Clear List
 			else System.out.println("Invalid choice.\n");
 		}
 	}
 
 		/**
-		 * Handles functionality for the favourites list.
+		 * Handles functionality for the favorites list.
 		 */
 		private void enterFavList() {
 			boolean proceed = true;
@@ -178,19 +181,19 @@ class UserInteraction {
 				int choice = input.nextInt();
 
 				switch (choice) {
-					case 1:
+					case 1:	//Clear List
 						fList.clearList();
 						break;
-					case 2:
+					case 2:	//Sort List
 					    chooseSortType().sort();
 					    break;
-					case 3:
+					case 3:	//Swap Items
 						fList.swapFListProducts();
 						break;
-					case 4:
+					case 4:	//Remove
 						fList.removeProductAtIndex();
 						break;
-					case 5:
+					case 5:	//Back
 						proceed = false;
 						break;
 					default:
@@ -204,11 +207,11 @@ class UserInteraction {
 		 * choose type of sort to apply to favorite list.
 		 */
 	    private Sortable chooseSortType() {
-			HashMap<Integer, Sortable> sorts = new HashMap<>();
-			sorts.put(1, new Alphabetical(ASCENDING, fList.getList()));
-			sorts.put(2, new Alphabetical(DESCENDING, fList.getList()));
-			sorts.put(3, new Numerical(ASCENDING, fList.getList()));
-			sorts.put(4, new Numerical(DESCENDING, fList.getList()));
+			HashMap<Integer, Sortable> sorts = new HashMap<>();				//Key = choice, Value = sort object
+			sorts.put(1, new Alphabetical(ASCENDING, fList.getList()));		//ascending alphabetical sort
+			sorts.put(2, new Alphabetical(DESCENDING, fList.getList()));	//descending alphabetical sort
+			sorts.put(3, new Numerical(ASCENDING, fList.getList()));		//ascending numerical sort
+			sorts.put(4, new Numerical(DESCENDING, fList.getList()));		//descending numerical sort
 
 			menu.sortOptions();
 			return sorts.get(input.nextInt());
@@ -221,8 +224,7 @@ class UserInteraction {
 		 */
 		private void chooseAProduct (ProductList pList) {
 			System.out.print("\nChoose a product: ");
-			int choice = input.nextInt();
-			Product chosen = brList.getList().get(choice-1);
+			Product chosen = brList.getList().get(input.nextInt()-1);
 			fList.addToEnd(chosen);
 			pList.removeProduct(chosen);
 		}

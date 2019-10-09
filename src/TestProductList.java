@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class TestProductList {
 
 	private final ProductList prodList = new ProductList();
-	private final ProductList dList = new ProductList();
+	private final ProductList hList = new ProductList();
 
 
 	@Test
@@ -170,24 +170,24 @@ class TestProductList {
 
 	@Test
 	void clearEmptyList() {
-		dList.clearList();
-		int dListProds = dList.getList().size();
+		hList.clearList();
+		int dListProds = hList.getList().size();
 
 		assertEquals(0, dListProds);
 	}
 
 	@Test
 	void clearListWithProds() {
-		dList.addToFront(new Product());
-		dList.addToFront(new Product());
-		dList.addToFront(new Product());
-		dList.addToFront(new Product());
-		dList.addToFront(new Product());
+		hList.addToFront(new Product());
+		hList.addToFront(new Product());
+		hList.addToFront(new Product());
+		hList.addToFront(new Product());
+		hList.addToFront(new Product());
 
-		dList.clearList();
-		int dListProds = dList.getList().size();
+		hList.clearList();
+		int historyLength = hList.getList().size();
 
-		assertEquals(0, dListProds);
+		assertEquals(0, historyLength);
 	}
 
 	Preference preferenceBuilder() {
