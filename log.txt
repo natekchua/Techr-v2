@@ -1,0 +1,137 @@
+commit 67144bc955f38cf8db1702b509fb1dd7cb862eed
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Tue Oct 8 22:27:12 2019 -0600
+
+    collapsed hierarchy by removing browseList class & other minor fixes
+
+commit 3084bf1d197013e865cecc70f107be7ae1fd54c7
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Tue Oct 8 21:42:19 2019 -0600
+
+    renamed discarded to history (makes more sense). improved documentation
+
+commit 4ed9038fdc7341c309fd5da2dee5dfd84b1fe6a8
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Tue Oct 8 17:02:51 2019 -0600
+
+    reduced bulkiness of switch in EnterFavList by replacing sort component of switch with polymorphism. This change is done in new method chooseSortType()
+
+commit f3e3982482215167c7f7762f4244154b48e3fa03
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Tue Oct 8 12:08:24 2019 -0600
+
+    moved swap and remove methods into favoritesList class. created interface Sortable for sort methods. fixed output text and formatting
+
+commit 10136fac879de3ad9dcb69895ef5f01c0cf02de3
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Mon Oct 7 14:53:36 2019 -0600
+
+    replaced switch with if-else in enterDisList()
+
+commit 18364bf7bbd02b8360d5385769e862194236f5fd
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Sun Oct 6 17:40:27 2019 -0600
+
+    Collapsed Hierarchy on Lazy Class DiscardedList. Adjusted tests accordingly
+
+commit 8a2c8c649c067c4e9077b336462dc712c4d1df78
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Sun Oct 6 00:01:32 2019 -0600
+
+    corrected access modifiers to classes, methods, and attributes. removed more unused code
+
+commit 382dd9c5637f70bafc4a289c25c1b6c03ea22cb0
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Sat Oct 5 23:50:25 2019 -0600
+
+    substituted code in comparator methods inside Product Class to lambda expressions for readability
+
+commit 0cae8a6c35737052f32272c70d43760ef77332b3
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Sat Oct 5 23:19:59 2019 -0600
+
+    changed Database class name to FileParser for clarity
+
+commit 20564c58858cb154473e92db071507de62272f3d
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Sat Oct 5 23:14:03 2019 -0600
+
+    fixed brackets
+
+commit dd25cafd79cab59a70e8f99e145327edd03fefc3
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Sat Oct 5 23:05:36 2019 -0600
+
+    updated sort methods in FavoritesList class
+
+commit ac20cafaf410ea7d6a303c65f11cad716b6cf08b
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Sat Oct 5 22:51:06 2019 -0600
+
+    Removed unused attributes in Product class. .txt file and test classes were updated accordingly
+
+commit ee36239e2b49ec63c3b0b3d94c16f734e9869378
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Sat Oct 5 17:10:40 2019 -0600
+
+    Removed the rest of dead code in project
+
+commit ba69a0ab0f1b091e127de700777fef42b453f96a
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Sat Oct 5 17:00:12 2019 -0600
+
+    Removed dead code in Preference Class
+
+commit 301cb51aee37a54b0024ba85afb515a0e9efedc8
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Sat Oct 5 16:02:27 2019 -0600
+
+    Removed dead code in Category class and CategoryList class
+
+commit 9386f4e7c44494c6085922a74d806cac044bbb98
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Fri Oct 4 18:14:49 2019 -0600
+
+    Removed duplicate code by deleting addSubcat() method in CategoryList class. adding subcategories is now done through addSub() in Category class.
+
+commit 789ba4b3153268ac52bb133f269fdb6d21da18f6
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Mon Sep 30 22:27:33 2019 -0600
+
+    Created new class CategoryList and moved all of the category-related methods from ProductList to this new class. fixed brackets and simplified some code
+
+commit 08468cea0e1f96712b8df8241c95d796c5147924
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Mon Sep 30 15:02:03 2019 -0600
+
+    browse() shortened. Extracted new method called filteredResults() where the filtered products are displayed.
+
+commit 5bd3e888cfd5da857c2402af6554e925d14fb5c8
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Mon Sep 30 10:05:15 2019 -0600
+
+    broke down browse() by adding chooseFilter Method. created filter method called selectSubCategory() in Preference Class. added some documentation and other small refactorings
+
+commit 0961fde6d4b795db460d4527ee8d0e55c0d0187e
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Sun Sep 29 22:49:51 2019 -0600
+
+    created default Constructor for Category Class. renamed variables in browse() and removed unused variables in UserInteraction
+
+commit 48ee300921927f984bfd119e3d04ae2e9fdbdf02
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Sun Sep 29 22:14:16 2019 -0600
+
+    created new class Menus to store 'display' menu methods. fixed access modifiers of the methods inside UserInteraction Class. Renamed mainMenu() to options()
+
+commit bdc023c1c65e84c1b5c2c3e7432f9c67458dfd4e
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Thu Sep 26 11:18:17 2019 -0600
+
+    Test
+
+commit 41eb5c452d84be9fa4cc7c93ae0e27ba0f4852f7
+Author: Nathan Chua <nchua235@mtroyal.ca>
+Date:   Thu Sep 26 11:17:17 2019 -0600
+
+    Initial Commit

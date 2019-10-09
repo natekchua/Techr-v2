@@ -44,36 +44,29 @@ class FileParser {
 	 * @param cList - list of categories of the products
 	 */
 	private void parseFile(Scanner file, ProductList pList, CategoryList cList) {
-		String line;
-		String[] lineArr;
-		int numProducts;
-		String productName, productCategory;
-		String[] sections;
-		double price;
-		double rating;
-		Product product;
 		
-		numProducts = file.nextInt();
+		int numProducts = file.nextInt();
 		file.nextLine();
+
 		for(int p = 0; p < numProducts; p++) {
-			line = file.nextLine();
+			String line = file.nextLine();
 			String COMMA = ",";
-			lineArr = line.split(COMMA);
-			productName = lineArr[0];
-			productCategory = lineArr[1];
+			String [] lineArr = line.split(COMMA);
+			String productName = lineArr[0];
+			String productCategory = lineArr[1];
 			cList.addCategory(productCategory);
 
 			line = file.nextLine();
-			sections = line.split(COMMA);
+			String [] sections = line.split(COMMA);
 			for(String section : sections)
 				cList.getCategory(productCategory).addSub(section);
 
-			price = file.nextDouble();
-			rating = file.nextDouble();
+			double price = file.nextDouble();
+			double rating = file.nextDouble();
 
 			file.nextLine();
 
-			product = new Product(productName, productCategory, sections, 
+			Product product = new Product(productName, productCategory, sections,
 								  price, rating);
 			pList.addToEnd(product);
 		}
